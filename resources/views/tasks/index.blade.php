@@ -4,7 +4,8 @@
 
 @section('content')
     <h1>Welcome in the task area!</h1>
-    <table>
+
+    <table class="table">
         <thead>
             <th>Task</th>
             <th>Description</th>
@@ -14,13 +15,14 @@
         <tbody>
             @foreach ($tasks as $task)
             <tr>
-                <td>{{ $task->title }}</td>
-                <td>{{ $task->description }}</td>
-                <td>{{ $task->datetime_from }}</td>
-                <td>{{ $task->datetime_to }}</td>
+                <td><a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a></td>
+                <td class="w-50">{{ $task->description }}</td>
+                <td>{{ date('d. m. Y', strtotime($task->from)) }}</td>
+                <td>{{ date('d. m. Y', strtotime($task->to)) }}</td>
             </tr>
-
             @endforeach
         </tbody>
     </table>
+
+    <a href="/tasks/create" class="btn btn-info">Create new task</a>
 @endsection

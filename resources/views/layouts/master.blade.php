@@ -9,10 +9,20 @@
 
     </head>
     <body class="antialiased">
-        <div class="container">
-            <div class="col-lg-2"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2">
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="/">Dashboard</a>
+                        <a class="nav-link" href="/tasks">Tasks</a>
+                        <a class="nav-link" href="/clients">Clients</a>
+                    </nav>
+                </div>
 
-            <div class="col-lg-10">@yield('content')</div>
+                <div class="col-lg-10">
+                    @yield('content')
+                </div>
+            </div>
         </div>
 
         <script src="{{ asset('js/app.js')}}"></script>

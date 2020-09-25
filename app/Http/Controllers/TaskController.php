@@ -29,7 +29,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
@@ -40,7 +40,19 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'description' => 'string',
+            'from' => 'date',
+            'to' => 'date',
+        ], [
+            'title.required' => 'Task name is required!'
+        ]);
+
+        $task = Task::create($validatedData);
+
+        return back()->with('success', 'Task created.');
     }
 
     /**
@@ -51,7 +63,9 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-
+        return view('tasks.show', [
+            'task' => Task::findOrFail($task->id),
+        ]);
     }
 
     /**
@@ -85,6 +99,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        Task::destroy($task->id);
+        return redirect('/tasks/');
     }
 }

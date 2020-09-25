@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/', DashboardController::class);
-Route::resource('client', ClientController::class);
+Route::resource('clients', ClientController::class);
 Route::resource('tasks', TaskController::class);
