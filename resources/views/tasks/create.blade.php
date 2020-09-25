@@ -1,22 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Tasks')
+@section('title', 'Task create')
 
 @section('content')
 
     <div class="container">
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
-
-
-                @if(Session::has('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                    @php
-                        Session::forget('success');
-                    @endphp
-                </div>
-                @endif
 
                 <form action="{{ route('tasks.store') }}" method="POST">
 

@@ -5,6 +5,15 @@
 @section('content')
     <h1>Welcome in the task area!</h1>
 
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
+        @php
+            Session::forget('success');
+        @endphp
+    </div>
+    @endif
+    
     <table class="table">
         <thead>
             <th>Task</th>
@@ -17,8 +26,16 @@
             <tr>
                 <td><a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a></td>
                 <td class="w-50">{{ $task->description }}</td>
-                <td>{{ date('d. m. Y', strtotime($task->from)) }}</td>
-                <td>{{ date('d. m. Y', strtotime($task->to)) }}</td>
+                <td>
+                @if (isset($task->from))
+                    {{ date('d. m. Y', strtotime($task->from)) }}
+                @endif
+                </td>
+                <td>
+                @if (isset($task->to))
+                    {{ date('d. m. Y', strtotime($task->to)) }}
+                @endif
+                </td>
             </tr>
             @endforeach
         </tbody>

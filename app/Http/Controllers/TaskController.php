@@ -19,7 +19,6 @@ class TaskController extends Controller
         return view('tasks.index', [
             'tasks' => $tasks
         ]);
-
     }
 
     /**
@@ -40,19 +39,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $validatedData = $request->validate([
             'title' => 'required',
-            'description' => 'string',
-            'from' => 'date',
-            'to' => 'date',
+            'description' => 'string|nullable',
+            'from' => 'date|nullable',
+            'to' => 'date|nullable',
         ], [
             'title.required' => 'Task name is required!'
         ]);
 
-        $task = Task::create($validatedData);
-
-        return back()->with('success', 'Task created.');
+        Task::create($validatedData);
+        return redirect('/tasks/')->with('success', "Task  $request->title created.");
     }
 
     /**
@@ -76,7 +73,9 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit', [
+            'task' => Task::findOrFail($task->id),
+        ]);
     }
 
     /**
@@ -88,7 +87,16 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'description' => 'string|nullable',
+            'from' => 'date|nullable',
+            'to' => 'date|nullable',
+        ], [
+            'title.required' => 'Task name is required!'
+        ]);
+        $task->update($validatedData);
+        return redirect('/tasks/')->with('success', "Task $task->title edited.");
     }
 
     /**

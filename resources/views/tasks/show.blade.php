@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Tasks')
+@section('title', "$task->title - Task detail")
 
 @section('content')
 
@@ -10,9 +10,28 @@
                 <div class="shadow p-3 bg-white rounded">
                     <h2>{{ $task->title }}</h2>
                     <p>{{ $task->description }}</p>
-                    <div>Started: {{ date('d. m. Y', strtotime($task->from)) }}</div>
-                    <div>Deadline: {{ date('d. m. Y', strtotime($task->to)) }}</div>
-                    <a href="{{ route('tasks.destroy', $task->id) }}" class="btn btn-danger">Delete</a>
+                    @if (isset($task->from))
+                        <div>Started: {{ date('d. m. Y', strtotime($task->from)) }}</div>
+                    @endif
+                    @if (isset($task->from))
+                        <div>Deadline: {{ date('d. m. Y', strtotime($task->to)) }}</div>
+                    @endif
+                    
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-6">
+                            <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">Edit</a>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-6 text-right">
+                            <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
