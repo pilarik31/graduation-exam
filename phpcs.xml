@@ -113,7 +113,7 @@
     <rule ref="ImportDetection"/>
     <rule ref="ImportDetection.Imports.RequireImports">
         <properties>
-            <property name="ignoreUnimportedSymbols" value="/^(activity|response|Route|trans|view|redirect|back)$/"/>
+            <property name="ignoreUnimportedSymbols" value="/^(activity|response|Route|trans|view|redirect|back|Controller)$/"/>
         </properties>
     </rule>
 

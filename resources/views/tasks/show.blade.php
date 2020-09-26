@@ -10,12 +10,12 @@
                 <div class="shadow p-3 bg-white rounded">
                     <h2>{{ $task->title }}</h2>
                     <p>{{ $task->description }}</p>
-                    @if (isset($task->from))
+                    @isset($task->from)
                         <div>Started: {{ date('d. m. Y', strtotime($task->from)) }}</div>
-                    @endif
-                    @if (isset($task->from))
+                    @endisset
+                    @isset($task->from)
                         <div>Deadline: {{ date('d. m. Y', strtotime($task->to)) }}</div>
-                    @endif
+                    @endisset
                     
                     <div class="row">
 

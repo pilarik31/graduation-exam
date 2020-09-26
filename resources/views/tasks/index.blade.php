@@ -27,14 +27,14 @@
                 <td><a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a></td>
                 <td class="w-50">{{ $task->description }}</td>
                 <td>
-                @if (isset($task->from))
+                @isset($task->from)
                     {{ date('d. m. Y', strtotime($task->from)) }}
-                @endif
+                @endisset
                 </td>
                 <td>
-                @if (isset($task->to))
+                @isset($task->to)
                     {{ date('d. m. Y', strtotime($task->to)) }}
-                @endif
+                @endisset
                 </td>
             </tr>
             @endforeach

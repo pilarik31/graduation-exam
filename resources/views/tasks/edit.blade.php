@@ -24,17 +24,17 @@
                         <label for="from">From</label>
                         <input type="date" name="from" id="from" class="form-control" 
                         value=
-                        "@if (isset($task->from))
+                        "@isset($task->from)
                             {{ date('Y-m-d', strtotime($task->from)) }}
-                        @endif
+                        @endisset
                         ">
 
                         <label for="to">To</label>
                         <input type="date" name="to" id="to" class="form-control"
                         value=
-                        "@if (isset($task->to))
+                        "@isset($task->to)
                             {{ date('Y-m-d', strtotime($task->to)) }}
-                        @endif
+                        @endisset
                         ">
                     </div>
 
