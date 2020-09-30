@@ -129,10 +129,11 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+    'email' => [
+        'empty' => 'Email is required.',
+    ],
+    'password' => [
+        'empty' => 'Password is required.'
     ],
 
     /*
@@ -147,5 +148,7 @@ return [
     */
 
     'attributes' => [],
+
+    
 
 ];

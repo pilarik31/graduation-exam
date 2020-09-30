@@ -23,7 +23,7 @@
                             {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
                         </div>
                         <div class="col-lg-6">
-                            <a href="{{ Auth::logout() }}">
+                            <a href="{{ route('logout') }}">
                                 Log out
                             </a>
                         </div>

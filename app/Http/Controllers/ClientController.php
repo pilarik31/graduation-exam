@@ -48,8 +48,8 @@ class ClientController extends Controller
         ], [
             'firstname.required' => 'Firstname is required!',
             'lastname.requried' => 'Lastname is required!',
-            'email.required' => 'Email is required!',
-            'password.required' => 'Password is required!',
+            'email.required' => __('validation.email.empty'),
+            'password.required' => __('validation.password.empty'),
         ]);
         $validatedData['password'] = Hash::make($request->password);
 
@@ -102,7 +102,7 @@ class ClientController extends Controller
         ], [
             'firstname.required' => 'Firstname is required!',
             'lastname.requried' => 'Lastname is required!',
-            'email.required' => 'Email is required!',
+            'email.required' => __('validation.email'),
         ]);
         $validatedData = array_filter($validatedData);
         if (array_key_exists('password', $validatedData)) {

@@ -26,13 +26,22 @@ class LoginController extends Controller
         $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required',
+        ],[
+            'email.required' => __('validation.email.empty'),
+            'password.required' => __('validation.password.empty'),
         ]);
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             return redirect()->intended();
         } else {
-            return back()->with('error', 'Invalid login credentials!');
+            return back()->with('error', __('auth.failed'));
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('login');
     }
 }

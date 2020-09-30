@@ -8,7 +8,7 @@
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
                 <div class="shadow p-3 bg-white rounded">
-                    <h2>{{ $client->firstname . $client->lastname }}</h2>
+                    <h2>{{ $client->firstname }} {{ $client->lastname  }}</h2>
                     <p>{{ $client->email }}</p>
 
                     <div class="row">

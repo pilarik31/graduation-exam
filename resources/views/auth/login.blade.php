@@ -10,9 +10,6 @@
 </head>
 <body>
 
-
-
-
 <div class="container">
     <div class="row mt-5">
         <div class="col-lg-12 col-md-12">
@@ -30,6 +27,7 @@
 
                 <div class="form-group">
                     @csrf
+                    
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control">
                     @if ($errors->has('email'))
@@ -45,7 +43,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-success btn-submit">
+                    <input type="submit" value="Log in" class="btn btn-success btn-submit">
                 </div>
             </form>
         </div>
