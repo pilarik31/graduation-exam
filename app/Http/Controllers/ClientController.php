@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -14,7 +16,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('client.index');
+        $clients = DB::table('clients')->get();
+        return view('clients.index', [
+            'clients' => $clients,
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.create');
+        return view('clients.create');
     }
 
     /**
@@ -35,7 +40,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'firstname' => 'required',
+            'lastname' => "required",
+            'email' => 'required|email|unique:clients,email',
+            'password' => 'required'
+        ], [
+            'firstname.required' => 'Firstname is required!',
+            'lastname.requried' => 'Lastname is required!',
+            'email.required' => 'Email is required!',
+            'password.required' => 'Password is required!',
+        ]);
+        $validatedData['password'] = Hash::make($request->password);
+
+        Client::create($validatedData);
+        return redirect('/clients/')->with('success', "Client  $request->firtname $request->lastname created.");
     }
 
     /**
@@ -46,7 +65,11 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        //dump(Client::find($client->id)->tasks());
+        return view('clients.show', [
+            'client' => Client::findOrFail($client->id),
+            'tasks' => Client::findOrFail($client->id)->tasks,
+        ]);
     }
 
     /**
@@ -57,7 +80,9 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit', [
+            'client' => Client::findOrFail($client->id),
+        ]);
     }
 
     /**
@@ -69,7 +94,23 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        if ($request->has('password')) {
+            dump($request->except(['password']));
+        }
+
+        $validatedData = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email|unique:clients,email',
+            'password' => '',
+        ], [
+            'firstname.required' => 'Firstname is required!',
+            'lastname.requried' => 'Lastname is required!',
+            'email.required' => 'Email is required!',
+        ]);
+        $validatedData = array_filter($validatedData);
+        $client->update($validatedData);
+        return redirect('/clients/')->with('success', "Client $client->firstname $client->lastname edited.");
     }
 
     /**
@@ -80,6 +121,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        Client::destroy($client->id);
+        return redirect('/clients/')->with('success', "Client $client->firstname $client->lastname deleted.");
     }
 }

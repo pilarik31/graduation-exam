@@ -13,7 +13,7 @@
         @endphp
     </div>
     @endif
-    
+
     <table class="table">
         <thead>
             <th>Task</th>

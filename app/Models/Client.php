@@ -9,6 +9,12 @@ class Client extends Model
 {
     use HasFactory;
 
+
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
