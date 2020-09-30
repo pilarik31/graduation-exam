@@ -13,9 +13,9 @@
             <div class="row">
                 <div class="col-lg-2">
                     <nav class="nav flex-column">
-                        <a class="nav-link" href="/">Dashboard</a>
-                        <a class="nav-link" href="/tasks">Tasks</a>
-                        <a class="nav-link" href="/clients">Clients</a>
+                        <a class="nav-link" href="/">@lang('general.dashboard')</a>
+                        <a class="nav-link" href="/tasks">@lang('general.tasks.tasks')</a>
+                        <a class="nav-link" href="/clients">@lang('general.clients')</a>
                     </nav>
 
                     <div class="row">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-lg-6">
                             <a href="{{ route('logout') }}">
-                                Log out
+                                @lang('auth.logout')
                             </a>
                         </div>
                     </div>

@@ -34,7 +34,7 @@
                         <div class="alert alert-danger text-danger">{{ $errors->first('email')  }}</div>
                     @endif
 
-                    <label for="password">Password</label>
+                    <label for="password">@lang('general.password.word')</label>
                     <input type="password" name="password" id="password" class="form-control">
                     @if ($errors->has('password'))
                         <div class="alert alert-danger text-danger">{{ $errors->first('password')  }}</div>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Log in" class="btn btn-success btn-submit">
+                    <input type="submit" value="@lang('auth.login.btn')" class="btn btn-success btn-submit">
                 </div>
             </form>
         </div>

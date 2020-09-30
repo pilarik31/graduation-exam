@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'success' => 'Successfully logged in.',
+    'failed' => 'Přihlašovací údaje nejsou platné.',
+    'success' => 'Úspěšně přihlášen.',
     'login' => [
-        'btn' => 'Log in',
+        'btn' => 'Přihlásit se',
     ],
-    'logout' => 'Log out',
+    'logout' => 'Odhlásit',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

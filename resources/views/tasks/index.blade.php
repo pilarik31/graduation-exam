@@ -16,9 +16,9 @@
 
     <table class="table">
         <thead>
-            <th>Task</th>
-            <th>Description</th>
-            <th>From</th>
+            <th>@lang('general.tasks.task')</th>
+            <th>@lang('general.tasks.description')</th>
+            <th>@lang('general.tasks.from')</th>
             <th>Deadline</th>
         </thead>
         <tbody>
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="/tasks/create" class="btn btn-info">Create new task</a>
+    <a href="/tasks/create" class="btn btn-info">@lang('general.tasks.new')</a>
 @endsection
