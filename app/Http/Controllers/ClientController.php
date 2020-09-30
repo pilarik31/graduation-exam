@@ -94,14 +94,10 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        if ($request->has('password')) {
-            dump($request->except(['password']));
-        }
-
         $validatedData = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email|unique:clients,email',
+            'email' => 'required|email', //unique:clients,email',
             'password' => '',
         ], [
             'firstname.required' => 'Firstname is required!',
@@ -109,6 +105,9 @@ class ClientController extends Controller
             'email.required' => 'Email is required!',
         ]);
         $validatedData = array_filter($validatedData);
+        if (array_key_exists('password', $validatedData)) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        }
         $client->update($validatedData);
         return redirect('/clients/')->with('success', "Client $client->firstname $client->lastname edited.");
     }

@@ -11,7 +11,7 @@ class Task extends Model
 
     public function client()
     {
-        return $this->belongsTo('App\Models\Client', 'client_id');
+        return $this->belongsTo('App\Models\Client');
     }
 
     protected $fillable = [

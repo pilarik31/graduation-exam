@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Http\Middleware\Authenticate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticable;
 
-class Client extends Model
+class Client extends Authenticable
 {
     use HasFactory;
 
@@ -15,13 +17,18 @@ class Client extends Model
         return $this->hasMany('App\Models\Task');
     }
 
+
+    protected $guarded = [
+        'id',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password',
+        'firstname', 'lastname', 'email', 'password'
     ];
 
     /**
@@ -30,6 +37,6 @@ class Client extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
+        'password', 'remember_token'
     ];
 }

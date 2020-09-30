@@ -17,7 +17,19 @@
                         <a class="nav-link" href="/tasks">Tasks</a>
                         <a class="nav-link" href="/clients">Clients</a>
                     </nav>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
+                        </div>
+                        <div class="col-lg-6">
+                            <a href="{{ Auth::logout() }}">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
 
                 <div class="col-lg-10">
                     @yield('content')

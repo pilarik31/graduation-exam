@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', DashboardController::class);
-Route::resource('clients', ClientController::class);
-Route::resource('tasks', TaskController::class);
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::resource('/', DashboardController::class)->middleware('auth');
+Route::resource('clients', ClientController::class)->middleware('auth');
+Route::resource('tasks', TaskController::class)->middleware('auth');
