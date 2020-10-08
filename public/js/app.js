@@ -37324,15 +37324,27 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 
 /***/ }),
 
+/***/ "./resources/scss/login.scss":
+/*!***********************************!*\
+  !*** ./resources/scss/login.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/scss/app.scss ***!
-  \*************************************************************/
+/*!*****************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/scss/app.scss ./resources/scss/login.scss ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\graduation-exam\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\graduation-exam\resources\scss\app.scss */"./resources/scss/app.scss");
+__webpack_require__(/*! E:\wamp64\www\graduation-exam\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\wamp64\www\graduation-exam\resources\scss\app.scss */"./resources/scss/app.scss");
+module.exports = __webpack_require__(/*! E:\wamp64\www\graduation-exam\resources\scss\login.scss */"./resources/scss/login.scss");
 
 
 /***/ })

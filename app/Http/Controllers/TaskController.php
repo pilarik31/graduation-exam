@@ -49,7 +49,7 @@ class TaskController extends Controller
         ]);
 
         Task::create($validatedData);
-        return redirect('/tasks/')->with('success', "Task  $request->title created.");
+        return redirect()->route('tasks.index')->with('success', "Task  $request->title created.");
     }
 
     /**
@@ -96,7 +96,7 @@ class TaskController extends Controller
             'title.required' => 'Task name is required!'
         ]);
         $task->update($validatedData);
-        return redirect('/tasks/')->with('success', "Task $task->title edited.");
+        return redirect()->route('tasks.index')->with('success', "Task $task->title edited.");
     }
 
     /**
@@ -108,6 +108,6 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         Task::destroy($task->id);
-        return redirect('/tasks/');
+        return redirect()->route('tasks.index');
     }
 }

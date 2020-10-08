@@ -28,6 +28,9 @@ class ClientFactory extends Factory
             'lastname' => $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('admin'),
+            'address' => $this->faker->address,
+            'city' => $this->faker->city,
+            'role_id' => $this->faker->randomElement([1, 2, 3, 4,]),
         ];
     }
 }

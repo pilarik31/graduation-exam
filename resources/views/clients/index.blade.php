@@ -18,6 +18,9 @@
         <thead>
             <th>Name</th>
             <th>Email</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Role</th>
         </thead>
         <tbody>
             @foreach ($clients as $client)
@@ -27,7 +30,10 @@
                         {{ $client->firstname }} {{ $client->lastname }}
                     </a>
                 </td>
-                <td class="w-50">{{ $client->email }}</td>
+                <td class="">{{ $client->email }}</td>
+                <td>{{ $client->address }}</td>
+                <td>{{ $client->city }}</td>
+                <td>{{ $client->role_id }}</td>
             </tr>
             @endforeach
         </tbody>

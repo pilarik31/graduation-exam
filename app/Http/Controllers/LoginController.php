@@ -32,16 +32,20 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
             return redirect()->intended()->with('success', __('auth.success'));
         } else {
             return back()->with('error', __('auth.failed'));
         }
     }
 
+    /**
+     * Handle a logout.
+     *
+     * @return Response
+     */
     public function logout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect()->route('login');
     }
 }

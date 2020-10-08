@@ -19,7 +19,7 @@
             <th>@lang('general.tasks.task')</th>
             <th>@lang('general.tasks.description')</th>
             <th>@lang('general.tasks.from')</th>
-            <th>Deadline</th>
+            <th>@lang('general.tasks.deadline')</th>
         </thead>
         <tbody>
             @foreach ($tasks as $task)

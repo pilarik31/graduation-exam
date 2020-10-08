@@ -44,17 +44,21 @@ class ClientController extends Controller
             'firstname' => 'required',
             'lastname' => "required",
             'email' => 'required|email|unique:clients,email',
-            'password' => 'required'
+            'password' => 'required',
+            'address' => '',
+            'city' => '',
+            'role_id' => 'required',
         ], [
             'firstname.required' => 'Firstname is required!',
             'lastname.requried' => 'Lastname is required!',
             'email.required' => __('validation.email.empty'),
             'password.required' => __('validation.password.empty'),
+            'role_id.required' => 'Role is required!'
         ]);
         $validatedData['password'] = Hash::make($request->password);
 
         Client::create($validatedData);
-        return redirect('/clients/')->with('success', "Client  $request->firtname $request->lastname created.");
+        return redirect()->route('clients.index')->with('success', "Client  $request->firtname $request->lastname created.");
     }
 
     /**
@@ -97,19 +101,23 @@ class ClientController extends Controller
         $validatedData = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email', //unique:clients,email',
+            'email' => 'required|email',
             'password' => '',
+            'address' => '',
+            'city' => '',
+            'role_id' => 'required',
         ], [
             'firstname.required' => 'Firstname is required!',
             'lastname.requried' => 'Lastname is required!',
             'email.required' => __('validation.email'),
+            'role_id' => 'required',
         ]);
         $validatedData = array_filter($validatedData);
         if (array_key_exists('password', $validatedData)) {
             $validatedData['password'] = Hash::make($validatedData['password']);
         }
         $client->update($validatedData);
-        return redirect('/clients/')->with('success', "Client $client->firstname $client->lastname edited.");
+        return redirect()->route('clients.index')->with('success', "Client $client->firstname $client->lastname edited.");
     }
 
     /**
@@ -121,6 +129,6 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         Client::destroy($client->id);
-        return redirect('/clients/')->with('success', "Client $client->firstname $client->lastname deleted.");
+        return redirect()->route('clients.index')->with('success', "Client $client->firstname $client->lastname deleted.");
     }
 }

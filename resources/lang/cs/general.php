@@ -7,7 +7,9 @@ return [
         'task' => 'Úkol',
         'description' => 'Popis',
         'from' => 'Od',
-        'new' => 'Vytvořit nový úkol'
+        'deadline' => 'Deadline',
+        'new' => 'Vytvořit nový úkol',
+        'task-name' => 'Název úkolu',
     ],
     'clients' => 'Klienti',
     'password' => [

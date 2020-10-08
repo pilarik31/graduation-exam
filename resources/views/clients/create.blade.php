@@ -36,6 +36,24 @@
                             <div class="alert alert-danger text-danger">{{ $errors->first('password')  }}</div>
                         @endif
 
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address" class="form-control">
+                        @if ($errors->has('address'))
+                            <div class="alert alert-danger text-danger">{{ $errors->first('address')  }}</div>
+                        @endif
+
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" class="form-control">
+                        @if ($errors->has('city'))
+                            <div class="alert alert-danger text-danger">{{ $errors->first('city')  }}</div>
+                        @endif
+
+                        <label for="role_id">[TEMP] Role ID</label>
+                        <input type="text" name="role_id" id="role_id" class="form-control">
+                        @if ($errors->has('role_id'))
+                            <div class="alert alert-danger text-danger">{{ $errors->first('role_id')  }}</div>
+                        @endif
+
                     </div>
 
                     <div class="form-group">

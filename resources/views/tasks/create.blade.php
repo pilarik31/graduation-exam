@@ -12,24 +12,24 @@
 
                     <div class="form-group">
                         @csrf
-                        <label for="title">Task name</label>
+                        <label for="title">@lang('general.tasks.task-name')</label>
                         <input type="text" name="title" id="title" class="form-control">
                         @if ($errors->has('title'))
                             <div class="alert alert-danger text-danger">{{ $errors->first('title')  }}</div>
                         @endif
 
-                        <label for="description">Description</label>
+                        <label for="description">@lang('general.tasks.description')</label>
                         <textarea type="" name="description" id="description" class="form-control"></textarea>
 
-                        <label for="from">From</label>
+                        <label for="from">@lang('general.tasks.from')</label>
                         <input type="date" name="from" id="from" class="form-control">
 
-                        <label for="to">To</label>
+                        <label for="to">@lang('general.tasks.deadline')</label>
                         <input type="date" name="to" id="to" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-success btn-submit">
+                        <input type="submit" value="@lang('general.tasks.new')" class="btn btn-success btn-submit">
                     </div>
                 </form>
             </div>
