@@ -14,9 +14,9 @@
                         @csrf
                         <label for="title">@lang('general.tasks.task-name')</label>
                         <input type="text" name="title" id="title" class="form-control">
-                        @if ($errors->has('title'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('title')  }}</div>
-                        @endif
+                        @error('title')
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
+                        @enderror
 
                         <label for="description">@lang('general.tasks.description')</label>
                         <textarea type="" name="description" id="description" class="form-control"></textarea>

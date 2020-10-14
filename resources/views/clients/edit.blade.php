@@ -14,45 +14,45 @@
                         @csrf
                         <label for="firstname">Client firstname</label>
                         <input type="text" name="firstname" id="firstname" class="form-control" value="{{ $client->firstname }}">
-                        @if ($errors->has('firstname'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('firstname')  }}</div>
-                        @endif
+                        @error('firstname')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="lastname">Client lastname</label>
                         <input type="text" name="lastname" id="lastname" class="form-control" value="{{ $client->lastname }}">
-                        @if ($errors->has('lastname'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('lastname')  }}</div>
-                        @endif
+                        @error('lastname')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" value="{{ $client->email }}">
-                        @if ($errors->has('email'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('email')  }}</div>
-                        @endif
+                        @error('email')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" class="form-control">
-                        @if ($errors->has('password'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('password')  }}</div>
-                        @endif
+                        @error('password')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="address">Address</label>
                         <input type="text" name="address" id="address" class="form-control" value="{{ $client->address }}">
-                        @if ($errors->has('address'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('address')  }}</div>
-                        @endif
+                        @error('address')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="city">City</label>
                         <input type="text" name="city" id="city" class="form-control" value="{{ $client->city }}">
-                        @if ($errors->has('city'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('city')  }}</div>
-                        @endif
+                        @error('city')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="role_id">[TEMP] Role ID</label>
                         <input type="text" name="role_id" id="role_id" class="form-control" value="{{ $client->role_id }}">
-                        @if ($errors->has('role_id'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('role_id')  }}</div>
-                        @endif
+                        @error('role_id')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group">

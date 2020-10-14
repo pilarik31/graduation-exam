@@ -11,5 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js/').sass('resources/scss/app.scss', 'public/css/')
-.sass('resources/scss/login.scss', 'public/css/');
+mix
+.js('resources/js/app.js', 'public/js/')
+.extract(['lodash', 'axios', 'jquery', 'bootstrap', 'popper.js'])
+.sourceMaps()
+.sass('resources/scss/app.scss', 'public/css/')
+.sass('resources/scss/login.scss', 'public/css/')
+.browserSync('crm.local');
+
+if (mix.inProduction()) {
+    mix.version();
+}

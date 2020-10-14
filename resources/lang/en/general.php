@@ -9,7 +9,9 @@ return [
         'task' => 'Task',
         'description' => 'Description',
         'from' => 'From',
-        'new' => 'Create new task'
+        'deadline' => 'Deadline',
+        'new' => 'Create new task',
+        'task-name' => 'Název úkolu',
     ],
     'clients' => 'Clients',
     'password' => [

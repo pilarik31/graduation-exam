@@ -6,14 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('css/login.css')}}">
-
 </head>
 <body>
-
-
-
-
-
     <form action="{{ route('login') }}" method="POST" class="login-box">
             @csrf
             @if(Session::has('error'))
@@ -39,7 +33,6 @@
             </div>
             <input type="submit" value="@lang('auth.login.btn')" class="login-btn">
     </form>
-
 
 </body>
 </html>

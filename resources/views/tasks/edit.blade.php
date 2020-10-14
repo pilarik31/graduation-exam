@@ -14,15 +14,15 @@
                         @csrf
                         <label for="title">Task name</label>
                         <input type="text" name="title" id="title" class="form-control" value="{{ $task->title }}">
-                        @if ($errors->has('title'))
-                            <div class="alert alert-danger text-danger">{{ $errors->first('title')  }}</div>
-                        @endif
+                        @error('title')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
 
                         <label for="description">Description</label>
                         <textarea type="" name="description" id="description" class="form-control">{{ $task->description }}</textarea>
 
                         <label for="from">From</label>
-                        <input type="date" name="from" id="from" class="form-control" 
+                        <input type="date" name="from" id="from" class="form-control"
                         value=
                         "@isset($task->from)
                             {{ date('Y-m-d', strtotime($task->from)) }}
