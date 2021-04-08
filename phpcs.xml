@@ -109,12 +109,12 @@
     <ini name="memory_limit" value="128M"/>
 
     <rule ref="PSR2"/>
-    <rule ref="VariableAnalysis"/>
-    <rule ref="ImportDetection"/>
-    <rule ref="ImportDetection.Imports.RequireImports">
-        <properties>
-            <property name="ignoreUnimportedSymbols" value="/^(activity|response|Route|trans|view|redirect|back|Controller|dd|__)$/"/>
-        </properties>
-    </rule>
+    <!-- <rule ref="VariableAnalysis"/> -->
+    <!-- <rule ref="ImportDetection"/> -->
+    <!-- <rule ref="ImportDetection.Imports.RequireImports"> -->
+        <!-- <properties> -->
+            <!-- <property name="ignoreUnimportedSymbols" value="/^(activity|response|Route|trans|view|redirect|back|Controller|dd|__)$/"/> -->
+        <!-- </properties> -->
+    <!-- </rule> -->
 
 </ruleset>

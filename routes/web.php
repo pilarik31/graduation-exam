@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Authentication logic.
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+// Application logic.
 Route::resource('/', DashboardController::class)->middleware('auth');
 Route::resource('clients', ClientController::class)->middleware('auth');
 Route::resource('tasks', TaskController::class)->middleware('auth');

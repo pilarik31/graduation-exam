@@ -8,10 +8,8 @@ class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create(
             'clients', function (Blueprint $table) {
@@ -31,10 +29,8 @@ class CreateClientsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('clients');
     }
