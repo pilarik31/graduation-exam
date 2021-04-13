@@ -7,6 +7,9 @@ RUN apt-get install curl libxml2-dev libsqlite3-0 libsqlite3-dev \
     -y
 RUN apt-get autoremove -y
 RUN pecl install xdebug
+RUN pecl install -o -f redis \
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable redis
 
 RUN docker-php-ext-configure gd --with-jpeg
 RUN docker-php-ext-install mysqli pdo pdo_mysql xml gd intl

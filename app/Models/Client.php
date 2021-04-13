@@ -16,7 +16,7 @@ class Client extends Authenticable
         return $this->hasMany(Task::class);
     }
 
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
