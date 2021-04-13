@@ -15,6 +15,10 @@
                             {{ $task->client->firstname }} {{ $task->client->lastname }}
                         </a>
                     </h4>
+                    <h4>
+                        Implementer:
+                        @dump($task->implementer)
+                    </h4>
                     <p>{{ $task->description }}</p>
                     @isset($task->from)
                         <div>Started: {{ date('d. m. Y', strtotime($task->from)) }}</div>
@@ -40,6 +44,20 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-12 col-md-12">
+                <div class="shadow p-3 bg-white rounded">
+                    @include(
+                        'comments.index',
+                        ['comments' => $task->comments]
+                    )
+                    @include(
+                        'comments.create'
+                    )
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TaskController;
@@ -26,3 +27,4 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('/', DashboardController::class)->middleware('auth');
 Route::resource('clients', ClientController::class)->middleware('auth');
 Route::resource('tasks', TaskController::class)->middleware('auth');
+Route::resource('comments', CommentController::class)->middleware('auth');

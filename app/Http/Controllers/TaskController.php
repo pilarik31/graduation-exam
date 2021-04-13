@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         $tasks = DB::table('tasks')->get();
         return view('tasks.index', [
@@ -23,10 +23,8 @@ class TaskController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
         return view('tasks.create');
     }
@@ -34,10 +32,8 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
             'title' => 'required',
@@ -54,11 +50,8 @@ class TaskController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Task $task): View
     {
         return view('tasks.show', [
             'task' => Task::findOrFail($task->id),
@@ -67,11 +60,8 @@ class TaskController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Task $task): View
     {
         return view('tasks.edit', [
             'task' => Task::findOrFail($task->id),
@@ -80,12 +70,8 @@ class TaskController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task): RedirectResponse
     {
         $validatedData = $request->validate([
             'title' => 'required',
@@ -101,11 +87,8 @@ class TaskController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task): RedirectResponse
     {
         Task::destroy($task->id);
         return redirect()->route('tasks.index');

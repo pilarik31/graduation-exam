@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         $clients = DB::table('clients')->get();
         return view('clients.index', [
@@ -24,21 +24,16 @@ class ClientController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
         return view('clients.create');
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
             'firstname' => 'required',
@@ -63,13 +58,9 @@ class ClientController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Client $client): View
     {
-        //dump(Client::find($client->id)->tasks());
         return view('clients.show', [
             'client' => Client::findOrFail($client->id),
             'tasks' => Client::findOrFail($client->id)->tasks,
@@ -78,11 +69,8 @@ class ClientController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Client $client): View
     {
         return view('clients.edit', [
             'client' => Client::findOrFail($client->id),
@@ -91,12 +79,8 @@ class ClientController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Client $client): RedirectResponse
     {
         $validatedData = $request->validate([
             'firstname' => 'required',
@@ -117,18 +101,19 @@ class ClientController extends Controller
             $validatedData['password'] = Hash::make($validatedData['password']);
         }
         $client->update($validatedData);
-        return redirect()->route('clients.index')->with('success', "Client $client->firstname $client->lastname edited.");
+        return redirect()
+            ->route('clients.index')
+            ->with('success', "Client $client->firstname $client->lastname edited.");
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Client $client): RedirectResponse
     {
         Client::destroy($client->id);
-        return redirect()->route('clients.index')->with('success', "Client $client->firstname $client->lastname deleted.");
+        return redirect()
+            ->route('clients.index')
+            ->with('success', "Client $client->firstname $client->lastname deleted.");
     }
 }

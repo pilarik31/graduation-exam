@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Task extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -16,21 +15,12 @@ class Task extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public function comments(): HasMany
+    public function task(): BelongsTo
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Task::class, 'task_id');
     }
 
-    protected $guarded = [
-        'id',
-    ];
-
     protected $fillable = [
-        'title', 'description', 'from', 'to'
-    ];
-
-    protected $casts = [
-        'from' => 'datetime',
-        'to' => 'datetime'
+        'content', 'client_id', 'task_id'
     ];
 }

@@ -10,6 +10,13 @@
                 <div class="shadow p-3 bg-white rounded">
                     <h2>{{ $client->firstname }} {{ $client->lastname  }}</h2>
                     <p>{{ $client->email }}</p>
+                    <ul>
+                        <li>Phone: {{ $client->phone }}</li>
+                        <li>Birthday: {{ date('d. m. Y', strtotime($client->birthday)) }}</li>
+                        <li>Address: {{ $client->address }}</li>
+                        <li>City: {{ $client->city }}</li>
+                        <li>Role: {{ $client->role_id }}</li>
+                    </ul>
 
                     <div class="row">
 

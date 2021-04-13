@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticable;
 
 class Client extends Authenticable
@@ -10,9 +11,14 @@ class Client extends Authenticable
     use HasFactory;
 
 
-    public function tasks()
+    public function tasks(): HasMany
     {
-        return $this->hasMany('App\Models\Task');
+        return $this->hasMany(Task::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 
@@ -26,7 +32,7 @@ class Client extends Authenticable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'address', 'city', 'role_id'
+        'firstname', 'lastname', 'email', 'password', 'phone', 'birthday', 'address', 'city', 'role_id'
     ];
 
     /**
@@ -36,5 +42,9 @@ class Client extends Authenticable
      */
     protected $hidden = [
         'password', 'remember_token'
+    ];
+
+    protected $casts = [
+        'birthday' => 'datetime',
     ];
 }

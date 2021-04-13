@@ -25,7 +25,8 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->firstNameFemale,
             'description' => $this->faker->paragraph,
-            'client_id' => 1,
+            'client_id' => 2,
+            'implementer' => 1,
             'from' => $this->faker->dateTime,
             'to' => $this->faker->dateTime,
         ];
