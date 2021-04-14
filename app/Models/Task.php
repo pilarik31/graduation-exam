@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property Client $client
+ */
 class Task extends Model
 {
     use HasFactory;
@@ -26,7 +29,7 @@ class Task extends Model
     ];
 
     protected $fillable = [
-        'title', 'description', 'from', 'to'
+        'title', 'description', 'from', 'to', 'client_id', 'implementer'
     ];
 
     protected $casts = [

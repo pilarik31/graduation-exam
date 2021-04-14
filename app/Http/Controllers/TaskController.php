@@ -5,19 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class TaskController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Task::class, 'task');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $tasks = DB::table('tasks')->get();
         return view('tasks.index', [
-            'tasks' => $tasks
+            'tasks' => Task::all()
         ]);
     }
 
@@ -31,7 +35,6 @@ class TaskController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      */
     public function store(Request $request): RedirectResponse
     {
@@ -43,7 +46,7 @@ class TaskController extends Controller
         ], [
             'title.required' => 'Task name is required!'
         ]);
-
+        $validatedData += ['client_id' => Auth::id()];
         Task::create($validatedData);
         return redirect()->route('tasks.index')->with('success', "Task  $request->title created.");
     }

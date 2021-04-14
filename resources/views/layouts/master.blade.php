@@ -15,17 +15,26 @@
                     <nav class="nav flex-column">
                         <a class="nav-link" href="/">@lang('general.dashboard')</a>
                         <a class="nav-link" href="/tasks">@lang('general.tasks.tasks')</a>
-                        <a class="nav-link" href="/clients">@lang('general.clients')</a>
+                        @can('view-any', auth()->user())
+                            <a class="nav-link" href="/clients">@lang('general.clients.plural')</a>
+                        @endcan
+
                     </nav>
 
                     <div class="row">
                         <div class="col-lg-6">
                             {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
+                            {{ auth()->user()->role->name }}
                         </div>
                         <div class="col-lg-6">
                             <a href="{{ route('logout') }}">
                                 @lang('auth.logout')
                             </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="rounded-circle">
                         </div>
                     </div>
                 </div>

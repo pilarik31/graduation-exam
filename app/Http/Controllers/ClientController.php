@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Client::class, 'client');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $clients = DB::table('clients')->get();
         return view('clients.index', [
-            'clients' => $clients,
+            'clients' => Client::all(),
         ]);
     }
 
@@ -97,6 +101,9 @@ class ClientController extends Controller
             'role_id' => 'required',
         ]);
         $validatedData = array_filter($validatedData);
+        if (!is_array($validatedData)) {
+            throw new Exception('Something is broken.');
+        }
         if (array_key_exists('password', $validatedData)) {
             $validatedData['password'] = Hash::make($validatedData['password']);
         }

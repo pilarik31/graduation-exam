@@ -32,7 +32,7 @@ class ClientFactory extends Factory
             'birthday' => $this->faker->dateTimeThisCentury(),
             'address' => $this->faker->address,
             'city' => $this->faker->city,
-            'role_id' => $this->faker->randomElement([1, 2, 3, 4,]),
+            'role_id' => $this->faker->randomElement([1, 2, 3,]),
         ];
     }
 }

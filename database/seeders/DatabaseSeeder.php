@@ -9,14 +9,12 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        User::factory(10)->create();
         $this->call(ClientSeeder::class);
         $this->call(TaskSeeder::class);
         $this->call(CommentSeeder::class);
+        $this->call(RoleSeeder::class);
     }
 }

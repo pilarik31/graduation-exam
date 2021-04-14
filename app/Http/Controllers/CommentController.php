@@ -29,7 +29,7 @@ class CommentController extends Controller
             'content.required' => 'Comment content is required!'
         ]);
         $validatedData += [
-            'client_id' => Auth::user()->id,
+            'client_id' => Auth::id(),
         ];
         Comment::create($validatedData);
         return back()->with('success', "Comment created.");
