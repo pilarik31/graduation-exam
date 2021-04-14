@@ -15,7 +15,10 @@
                     <nav class="nav flex-column">
                         <a class="nav-link" href="/">@lang('general.dashboard')</a>
                         <a class="nav-link" href="/tasks">@lang('general.tasks.tasks')</a>
-                        <a class="nav-link" href="/clients">@lang('general.clients')</a>
+                        @can('view-any', auth()->user())
+                            <a class="nav-link" href="/clients">@lang('general.clients')</a>
+                        @endcan
+
                     </nav>
 
                     <div class="row">
