@@ -9,10 +9,8 @@ class TaskSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         Task::factory(5)->create();
     }

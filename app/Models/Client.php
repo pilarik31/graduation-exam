@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticable;
 
@@ -21,6 +22,20 @@ class Client extends Authenticable
         return $this->hasMany(Comment::class);
     }
 
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role->id === 1;
+    }
+
+    public function isImplementer(): bool
+    {
+        return $this->role->id === 2;
+    }
 
     protected $guarded = [
         'id',

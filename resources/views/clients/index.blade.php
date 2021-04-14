@@ -3,7 +3,7 @@
 @section('title', 'Client area')
 
 @section('content')
-    <h1>Welcome in the client area!</h1>
+    <h1>@lang('general.clients')</h1>
 
     @if(Session::has('success'))
     <div class="alert alert-success">

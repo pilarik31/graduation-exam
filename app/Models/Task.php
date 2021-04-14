@@ -26,7 +26,7 @@ class Task extends Model
     ];
 
     protected $fillable = [
-        'title', 'description', 'from', 'to'
+        'title', 'description', 'from', 'to', 'client_id', 'implementer'
     ];
 
     protected $casts = [

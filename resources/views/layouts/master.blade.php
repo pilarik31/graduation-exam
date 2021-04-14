@@ -21,11 +21,17 @@
                     <div class="row">
                         <div class="col-lg-6">
                             {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
+                            {{ auth()->user()->role->name }}
                         </div>
                         <div class="col-lg-6">
                             <a href="{{ route('logout') }}">
                                 @lang('auth.logout')
                             </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="rounded-circle">
                         </div>
                     </div>
                 </div>

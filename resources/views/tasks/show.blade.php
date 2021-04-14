@@ -30,15 +30,19 @@
                     <div class="row">
 
                         <div class="col-lg-6 col-md-6 col-6">
-                            <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">Edit</a>
+                            @can('update', $task)
+                                <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">Edit</a>
+                            @endcan
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-6 text-right">
-                            <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <input type="submit" value="Delete" class="btn btn-danger">
-                            </form>
+                            @can('delete', $task)
+                                <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
+                            @endcan
                         </div>
 
                     </div>
