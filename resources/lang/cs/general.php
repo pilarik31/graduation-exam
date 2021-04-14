@@ -11,7 +11,16 @@ return [
         'new' => 'Vytvořit nový úkol',
         'task-name' => 'Název úkolu',
     ],
-    'clients' => 'Klienti',
+    'clients' => [
+        'plural' => 'Klienti',
+        'new' => 'Vytvořit klienta',
+        'firstname' => 'Jméno',
+        'lastname' => 'Přijmení',
+        'email' => 'Email',
+        'password' => 'Heslo',
+        'address' => 'Adresa',
+        'city' => 'Město'
+    ],
     'password' => [
         'word' => 'Heslo',
     ],

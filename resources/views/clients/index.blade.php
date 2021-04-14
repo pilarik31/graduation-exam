@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Client area')
+@section('title', 'Clients')
 
 @section('content')
-    <h1>@lang('general.clients')</h1>
+    <h1>@lang('general.clients.plural')</h1>
 
     @if(Session::has('success'))
     <div class="alert alert-success">
@@ -41,6 +41,6 @@
         </tbody>
     </table>
 
-    <a href="/clients/create" class="btn btn-info">Create new client</a>
+    <a href="/clients/create" class="btn btn-info">@lang('general.clients.new')</a>
 
 @endsection

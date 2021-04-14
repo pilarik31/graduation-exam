@@ -16,7 +16,7 @@
                         <a class="nav-link" href="/">@lang('general.dashboard')</a>
                         <a class="nav-link" href="/tasks">@lang('general.tasks.tasks')</a>
                         @can('view-any', auth()->user())
-                            <a class="nav-link" href="/clients">@lang('general.clients')</a>
+                            <a class="nav-link" href="/clients">@lang('general.clients.plural')</a>
                         @endcan
 
                     </nav>
