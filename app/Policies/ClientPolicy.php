@@ -15,10 +15,9 @@ class ClientPolicy
      */
     public function viewAny(Client $client): Response
     {
-        if ($client->isAdmin()) {
-            return Response::allow();
-        }
-        return Response::deny();
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 
     /**
@@ -26,10 +25,9 @@ class ClientPolicy
      */
     public function view(Client $client): Response
     {
-        if ($client->isAdmin()) {
-            return Response::allow();
-        }
-        return Response::deny(trans('response.403'), 403);
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 
     /**
@@ -37,10 +35,9 @@ class ClientPolicy
      */
     public function create(Client $client): Response
     {
-        if ($client->isAdmin()) {
-            return Response::allow();
-        }
-        return Response::deny(trans('response.403'), 403);
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 
     /**
@@ -48,10 +45,9 @@ class ClientPolicy
      */
     public function update(Client $client): Response
     {
-        if ($client->isAdmin()) {
-            return Response::allow();
-        }
-        return Response::deny(trans('response.403'), 403);
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 
     /**
@@ -59,10 +55,9 @@ class ClientPolicy
      */
     public function delete(Client $client): Response
     {
-        if ($client->isAdmin()) {
-            return Response::allow();
-        }
-        return Response::deny(trans('response.403'), 403);
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 
     /**

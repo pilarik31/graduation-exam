@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e97ececb3c303b0462ae6d95f389f57",
+    "content-hash": "0c3e9ed5dc375d33c23bc881900f7c2d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5211,16 +5211,16 @@
         },
         {
             "name": "andrey-helldar/support",
-            "version": "v3.5.1",
+            "version": "v3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrey-helldar/support.git",
-                "reference": "0fb2f03d693ad8b426e4dd554c7583a8782ca1dd"
+                "reference": "6260d262c7dd78d3053665f1cd605bcac23ce730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/0fb2f03d693ad8b426e4dd554c7583a8782ca1dd",
-                "reference": "0fb2f03d693ad8b426e4dd554c7583a8782ca1dd",
+                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/6260d262c7dd78d3053665f1cd605bcac23ce730",
+                "reference": "6260d262c7dd78d3053665f1cd605bcac23ce730",
                 "shasum": ""
             },
             "require": {
@@ -5284,15 +5284,11 @@
             },
             "funding": [
                 {
-                    "url": "https://money.yandex.ru/to/410012115955701",
-                    "type": "custom"
-                },
-                {
                     "url": "https://paypal.me/helldar",
                     "type": "custom"
                 }
             ],
-            "time": "2021-04-12T18:45:44+00:00"
+            "time": "2021-04-17T15:02:24+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -7098,16 +7094,16 @@
         },
         {
             "name": "nunomaduro/larastan",
-            "version": "v0.7.3",
+            "version": "v0.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "9c515d46851dca5a99fc82c0a69392c362b7affd"
+                "reference": "0ceef2a39b45be9d7f7dd96192a1721ba5112278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/9c515d46851dca5a99fc82c0a69392c362b7affd",
-                "reference": "9c515d46851dca5a99fc82c0a69392c362b7affd",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/0ceef2a39b45be9d7f7dd96192a1721ba5112278",
+                "reference": "0ceef2a39b45be9d7f7dd96192a1721ba5112278",
                 "shasum": ""
             },
             "require": {
@@ -7171,7 +7167,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/v0.7.3"
+                "source": "https://github.com/nunomaduro/larastan/tree/v0.7.4"
             },
             "funding": [
                 {
@@ -7191,7 +7187,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-04-12T11:01:46+00:00"
+            "time": "2021-04-16T08:25:31+00:00"
         },
         {
             "name": "phar-io/manifest",

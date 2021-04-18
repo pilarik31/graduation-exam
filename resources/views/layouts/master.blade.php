@@ -16,29 +16,38 @@
                         <a class="nav-link" href="/">@lang('general.dashboard')</a>
                         <a class="nav-link" href="/tasks">@lang('general.tasks.tasks')</a>
                         @can('view-any', auth()->user())
-                            <a class="nav-link" href="/clients">@lang('general.clients.plural')</a>
+                            <a class="nav-link" href="/clients">@lang('clients.plural')</a>
                         @endcan
 
                     </nav>
 
                     <div class="row">
+                        <div class="col-lg-12 ">
+                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="rounded-circle">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <a href="{{ route('clients.show', auth()->user()->id) }}">
+                                {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-lg-6">
-                            {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
                             {{ __("roles." . auth()->user()->role->name) }}
                         </div>
+
                         <div class="col-lg-6">
                             <a href="{{ route('logout') }}">
                                 @lang('auth.logout')
                             </a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="rounded-circle">
-                        </div>
-                    </div>
-                </div>
 
+                </div>
 
                 <div class="col-lg-10">
                     @yield('content')

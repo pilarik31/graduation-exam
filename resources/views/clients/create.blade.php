@@ -12,49 +12,49 @@
 
                     <div class="form-group">
                         @csrf
-                        <label for="firstname">@lang('general.clients.firstname')</label>
+                        <label for="firstname">@lang('clients.firstname')</label>
                         <input type="text" name="firstname" id="firstname" class="form-control">
                         @error('firstname')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="lastname">@lang('general.clients.lastname')</label>
+                        <label for="lastname">@lang('clients.lastname')</label>
                         <input type="text" name="lastname" id="lastname" class="form-control">
                         @error('lastname')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="email">@lang('general.clients.email')</label>
+                        <label for="email">@lang('clients.email')</label>
                         <input type="email" name="email" id="email" class="form-control">
                         @error('email')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="password">@lang('general.clients.password')</label>
+                        <label for="password">@lang('clients.password')</label>
                         <input type="password" name="password" id="password" class="form-control">
                         @error('password')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="phone">@lang('general.clients.phone')</label>
+                        <label for="phone">@lang('clients.phone')</label>
                         <input type="phone" name="phone" id="phone" class="form-control">
                         @error('phone')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="birthday">@lang('general.clients.birthday')</label>
+                        <label for="birthday">@lang('clients.birthday')</label>
                         <input type="date" name="birthday" id="birthday" class="form-control">
                         @error('birthday')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="address">@lang('general.clients.address')</label>
+                        <label for="address">@lang('clients.address')</label>
                         <input type="text" name="address" id="address" class="form-control">
                         @error('address')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="city">@lang('general.clients.city')</label>
+                        <label for="city">@lang('clients.city')</label>
                         <input type="text" name="city" id="city" class="form-control">
                         @error('city')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>

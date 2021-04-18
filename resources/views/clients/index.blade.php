@@ -3,7 +3,7 @@
 @section('title', 'Clients')
 
 @section('content')
-    <h1>@lang('general.clients.plural')</h1>
+    <h1>@lang('clients.plural')</h1>
 
     @if(Session::has('success'))
     <div class="alert alert-success">
@@ -41,6 +41,6 @@
         </tbody>
     </table>
 
-    <a href="/clients/create" class="btn btn-info">@lang('general.clients.new')</a>
+    <a href="/clients/create" class="btn btn-info">@lang('clients.new')</a>
 
 @endsection
