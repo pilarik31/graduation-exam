@@ -10,6 +10,14 @@ use Illuminate\Foundation\Auth\User as Authenticable;
 /**
  * @property int $id
  * @property Role $role
+ * @property string $firstname
+ * @property string $lastname
+ * @property string $email
+ * @property string $password
+ * @property string $phone
+ * @property \Illuminate\Support\Carbon $birthday
+ * @property string|null $address
+ * @property string|null $city
  */
 class Client extends Authenticable
 {
@@ -31,11 +39,17 @@ class Client extends Authenticable
         return $this->belongsTo(Role::class);
     }
 
+    /**
+     * Whether the user is admin or not.
+     */
     public function isAdmin(): bool
     {
         return $this->role->id === 1;
     }
 
+    /**
+     * Whether the user is implementer or not.
+     */
     public function isImplementer(): bool
     {
         return $this->role->id === 2;

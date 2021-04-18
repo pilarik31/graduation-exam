@@ -24,7 +24,10 @@
                     <div class="row">
                         <div class="col-lg-6">
                             {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
-                            {{ auth()->user()->role->name }}
+                            @php
+                                $roleName = auth()->user()->role->name
+                            @endphp
+                            @lang("roles.$roleName")
                         </div>
                         <div class="col-lg-6">
                             <a href="{{ route('logout') }}">
