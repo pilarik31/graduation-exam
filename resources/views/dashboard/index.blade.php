@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1>Welcome in the dashboard area!</h1>
+    <h1>Dashboard</h1>
 
     @if(Session::has('success'))
     <div class="alert alert-success">

@@ -12,10 +12,8 @@ class ClientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         DB::table('clients')->insert([
             'firstname' => 'Jan',

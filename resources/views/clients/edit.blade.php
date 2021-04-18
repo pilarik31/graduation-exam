@@ -48,8 +48,16 @@
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="role_id">[TEMP] Role ID</label>
-                        <input type="text" name="role_id" id="role_id" class="form-control" value="{{ $client->role_id }}">
+                        <label for="role_id">@lang('clients.role.select')</label>
+                        <select name="role_id" id="role_id" class="form-control">
+                            @foreach ($roles as $role)
+                                @if ($client->role->id === $role->id)
+                                    <option selected="selected" value="{{ $role->id }}">{{ __("roles.$role->name") }}</option>
+                                @else
+                                    <option value="{{ $role->id }}">{{ __("roles.$role->name") }}</option>
+                                @endif
+                            @endforeach
+                        </select>
                         @error('role_id')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror

@@ -15,7 +15,7 @@
                         <li>Birthday: {{ date('d. m. Y', strtotime($client->birthday)) }}</li>
                         <li>Address: {{ $client->address }}</li>
                         <li>City: {{ $client->city }}</li>
-                        <li>Role: {{ $client->role->name }}</li>
+                        <li>Role: {{ __('roles.' . $client->role->name) }}</li>
                     </ul>
 
                     <div class="row">

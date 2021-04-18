@@ -23,7 +23,6 @@ class Client extends Authenticable
 {
     use HasFactory;
 
-
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);

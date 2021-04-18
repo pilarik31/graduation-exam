@@ -36,6 +36,18 @@
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
+                        <label for="phone">@lang('general.clients.phone')</label>
+                        <input type="phone" name="phone" id="phone" class="form-control">
+                        @error('phone')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
+
+                        <label for="birthday">@lang('general.clients.birthday')</label>
+                        <input type="date" name="birthday" id="birthday" class="form-control">
+                        @error('birthday')
+                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                        @enderror
+
                         <label for="address">@lang('general.clients.address')</label>
                         <input type="text" name="address" id="address" class="form-control">
                         @error('address')
@@ -48,11 +60,16 @@
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="role_id">[TEMP] Role ID</label>
-                        <input type="text" name="role_id" id="role_id" class="form-control">
+                        <label for="role_id">@lang('clients.role.select')</label>
+                        <select name="role_id" id="role_id" class="form-control">
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ __("roles.$role->name") }}</option>
+                            @endforeach
+                        </select>
                         @error('role_id')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
+
 
                     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Role;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,7 +32,9 @@ class ClientController extends Controller
      */
     public function create(): View
     {
-        return view('clients.create');
+        return view('clients.create', [
+            'roles' => Role::all(),
+        ]);
     }
 
     /**
@@ -44,6 +47,8 @@ class ClientController extends Controller
             'lastname' => "required",
             'email' => 'required|email|unique:clients,email',
             'password' => 'required',
+            'phone' => 'required',
+            'birthday' => 'required',
             'address' => '',
             'city' => '',
             'role_id' => 'required',
@@ -52,6 +57,8 @@ class ClientController extends Controller
             'lastname.requried' => 'Lastname is required!',
             'email.required' => __('validation.email.empty'),
             'password.required' => __('validation.password.empty'),
+            'phone.required' => __('validation.phone.empty'),
+            'birthday.required' => __('validation.birthday.empty'),
             'role_id.required' => 'Role is required!'
         ]);
         $validatedData['password'] = Hash::make($request->password);
@@ -78,6 +85,7 @@ class ClientController extends Controller
     {
         return view('clients.edit', [
             'client' => Client::findOrFail($client->id),
+            'roles' => Role::all(),
         ]);
     }
 
@@ -91,6 +99,8 @@ class ClientController extends Controller
             'lastname' => 'required',
             'email' => 'required|email',
             'password' => '',
+            'phone' => 'required',
+            'birthday' => 'required',
             'address' => '',
             'city' => '',
             'role_id' => 'required',
@@ -98,6 +108,8 @@ class ClientController extends Controller
             'firstname.required' => 'Firstname is required!',
             'lastname.requried' => 'Lastname is required!',
             'email.required' => __('validation.email'),
+            'phone.required' => __('validation.phone.empty'),
+            'birthday.required' => __('validation.birthday.empty'),
             'role_id' => 'required',
         ]);
         $validatedData = array_filter($validatedData);

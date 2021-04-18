@@ -9,11 +9,9 @@ class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        Comment::factory(10)->create();
+        Comment::factory(20)->create();
     }
 }
