@@ -9,26 +9,35 @@
             <div class="col-lg-12 col-md-12">
                 <div class="shadow p-3 bg-white rounded">
                     <h2>{{ $client->firstname }} {{ $client->lastname  }}</h2>
-                    <p>{{ $client->email }}</p>
+                    <p>
+                        <a href="mailto:{{ $client->email }}">{{ $client->email }}</a>
+                    </p>
                     <ul>
-                        <li>Phone: {{ $client->phone }}</li>
-                        <li>Birthday: {{ date('d. m. Y', strtotime($client->birthday)) }}</li>
-                        <li>Address: {{ $client->address }}</li>
-                        <li>City: {{ $client->city }}</li>
-                        <li>Role: {{ __('roles.' . $client->role->name) }}</li>
+                        <li>
+                            @lang('clients.phone'):
+                            <a href="tel:{{ $client->phone }}">
+                                {{ $client->phone }}
+                            </a>
+                        </li>
+                        <li>@lang('clients.birthday'): {{ date('d. m. Y', strtotime($client->birthday)) }}</li>
+                        <li>@lang('clients.address'): {{ $client->address }}</li>
+                        <li>@lang('clients.city'): {{ $client->city }}</li>
+                        <li>@lang('clients.role.singular'): {{ __('roles.' . $client->role->name) }}</li>
                     </ul>
 
                     <div class="row">
 
                         <div class="col-lg-6 col-md-6 col-6">
-                            <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-info">
+                                @lang('clients.edit')
+                            </a>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-6 text-right">
                             <form action="{{ route('clients.destroy', [$client->id]) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <input type="submit" value="Delete" class="btn btn-danger">
+                                <input type="submit" value="@lang('clients.delete')" class="btn btn-danger">
                             </form>
                         </div>
 

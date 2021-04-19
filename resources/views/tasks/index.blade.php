@@ -5,21 +5,14 @@
 @section('content')
     <h1>@lang('general.tasks.tasks')</h1>
 
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-        @php
-            Session::forget('success');
-        @endphp
-    </div>
-    @endif
+    @include('partials.success')
 
     <table class="table">
         <thead>
-            <th>@lang('general.tasks.task')</th>
-            <th>@lang('general.tasks.description')</th>
-            <th>@lang('general.tasks.from')</th>
-            <th>@lang('general.tasks.deadline')</th>
+            <th>@lang('tasks.singular')</th>
+            <th>@lang('tasks.description')</th>
+            <th>@lang('tasks.from')</th>
+            <th>@lang('tasks.deadline')</th>
         </thead>
         <tbody>
             @foreach ($tasks as $task)

@@ -10,7 +10,7 @@
                 <div class="shadow p-3 bg-white rounded">
                     <h2>{{ $task->title }}</h2>
                     <h4>
-                        Client:
+                        @lang('clients.singular'):
                         <a href="{{ url("/clients", [$task->client->id]) }}">
                             {{ $task->client->firstname }} {{ $task->client->lastname }}
                         </a>
@@ -21,17 +21,17 @@
                     </h4>
                     <p>{{ $task->description }}</p>
                     @isset($task->from)
-                        <div>Started: {{ date('d. m. Y', strtotime($task->from)) }}</div>
+                        <div>@lang('tasks.from'): {{ date('d. m. Y', strtotime($task->from)) }}</div>
                     @endisset
                     @isset($task->from)
-                        <div>Deadline: {{ date('d. m. Y', strtotime($task->to)) }}</div>
+                        <div>@lang('tasks.deadline'): {{ date('d. m. Y', strtotime($task->to)) }}</div>
                     @endisset
 
                     <div class="row">
 
                         <div class="col-lg-6 col-md-6 col-6">
                             @can('update', $task)
-                                <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">@lang('general.edit')</a>
                             @endcan
                         </div>
 
@@ -40,7 +40,7 @@
                                 <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                    <input type="submit" value="@lang('general.delete')" class="btn btn-danger">
                                 </form>
                             @endcan
                         </div>

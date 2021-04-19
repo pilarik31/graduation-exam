@@ -12,16 +12,16 @@
                     @method('PATCH')
                     <div class="form-group">
                         @csrf
-                        <label for="title">Task name</label>
+                        <label for="title">@lang('tasks.task-name')</label>
                         <input type="text" name="title" id="title" class="form-control" value="{{ $task->title }}">
                         @error('title')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="description">Description</label>
+                        <label for="description">@lang('tasks.description')</label>
                         <textarea type="" name="description" id="description" class="form-control">{{ $task->description }}</textarea>
 
-                        <label for="from">From</label>
+                        <label for="from">@lang('tasks.from')</label>
                         <input type="date" name="from" id="from" class="form-control"
                         value=
                         "@isset($task->from)
@@ -29,7 +29,7 @@
                         @endisset
                         ">
 
-                        <label for="to">To</label>
+                        <label for="to">@lang('tasks.deadline')</label>
                         <input type="date" name="to" id="to" class="form-control"
                         value=
                         "@isset($task->to)
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-success btn-submit">
+                        <input type="submit" value="@lang('tasks.save')" class="btn btn-success btn-submit">
                     </div>
                 </form>
             </div>

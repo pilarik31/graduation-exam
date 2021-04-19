@@ -17,7 +17,9 @@ mix
 .sourceMaps()
 .sass('resources/scss/app.scss', 'public/css/')
 .sass('resources/scss/login.scss', 'public/css/')
-.browserSync('crm.local');
+.sass('resources/scss/error.scss', 'public/css')
+.css('node_modules/normalize.css/normalize.css', 'public/css')
+.browserSync('myapp.loc');
 
 if (mix.inProduction()) {
     mix.version();

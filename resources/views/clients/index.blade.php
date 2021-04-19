@@ -5,22 +5,15 @@
 @section('content')
     <h1>@lang('clients.plural')</h1>
 
-    @if(Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-        @php
-            Session::forget('success');
-        @endphp
-    </div>
-    @endif
+    @include('partials.success')
 
     <table class="table">
         <thead>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Role</th>
+            <th>@lang('clients.name')</th>
+            <th>@lang('clients.email')</th>
+            <th>@lang('clients.address')</th>
+            <th>@lang('clients.city')</th>
+            <th>@lang('clients.role.singular')</th>
         </thead>
         <tbody>
             @foreach ($clients as $client)
@@ -34,7 +27,7 @@
                     <td class="">{{ $client->email }}</td>
                     <td>{{ $client->address }}</td>
                     <td>{{ $client->city }}</td>
-                    <td>{{ $client->role_id }}</td>
+                    <td>{{ __('roles.' . $client->role->name) }}</td>
                 </tr>
                 @endcan
             @endforeach

@@ -14,7 +14,7 @@
                 <div class="col-lg-2">
                     <nav class="nav flex-column">
                         <a class="nav-link" href="/">@lang('general.dashboard')</a>
-                        <a class="nav-link" href="/tasks">@lang('general.tasks.tasks')</a>
+                        <a class="nav-link" href="/tasks">@lang('tasks.plural')</a>
                         @can('view-any', auth()->user())
                             <a class="nav-link" href="/clients">@lang('clients.plural')</a>
                         @endcan
