@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Tasks')
+@section('title', __('tasks.plural'))
 
 @section('content')
-    <h1>@lang('general.tasks.tasks')</h1>
+    <h1>@lang('tasks.plural')</h1>
 
     @include('partials.success')
 
@@ -36,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="/tasks/create" class="btn btn-info">@lang('general.tasks.new')</a>
+    <a href="{{ route('tasks.create') }}" class="btn btn-info">@lang('tasks.new')</a>
 @endsection

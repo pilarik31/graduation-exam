@@ -10,14 +10,7 @@
 <body>
     <form action="{{ route('login') }}" method="POST" class="login-box">
             @csrf
-            @if(Session::has('error'))
-            <div class="error">
-                {{ Session::get('error') }}
-                @php
-                    Session::forget('error');
-                @endphp
-            </div>
-            @endif
+            @include('partials.error')
             <h1>@lang('auth.login.login')</h1>
             <div class="textbox">
                 <input type="email" name="email" id="email" placeholder="Email">

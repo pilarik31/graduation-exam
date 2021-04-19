@@ -5,6 +5,7 @@ return [
     'password' => [
         'word' => 'Heslo',
     ],
+    'save' => 'Uložit',
     'edit' => 'Upravit',
-    'delete' => 'Smazat'
+    'delete' => 'Smazat',
 ];

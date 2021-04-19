@@ -7,7 +7,7 @@
 
     @include('partials.success')
 
-    <table class="table">
+    <table class="table" id="table-client">
         <thead>
             <th>@lang('clients.name')</th>
             <th>@lang('clients.email')</th>
@@ -34,6 +34,6 @@
         </tbody>
     </table>
 
-    <a href="/clients/create" class="btn btn-info">@lang('clients.new')</a>
+    <a href="{{ route('clients.create') }}" class="btn btn-info">@lang('clients.new')</a>
 
 @endsection

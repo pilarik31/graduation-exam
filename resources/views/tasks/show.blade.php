@@ -11,7 +11,7 @@
                     <h2>{{ $task->title }}</h2>
                     <h4>
                         @lang('clients.singular'):
-                        <a href="{{ url("/clients", [$task->client->id]) }}">
+                        <a href="{{ route("clients.show", [$task->client->id]) }}">
                             {{ $task->client->firstname }} {{ $task->client->lastname }}
                         </a>
                     </h4>

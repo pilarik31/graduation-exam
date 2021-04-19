@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-success btn-submit">
+                        <input type="submit" value="@lang('general.save')" class="btn btn-success btn-submit">
                     </div>
                 </form>
             </div>
