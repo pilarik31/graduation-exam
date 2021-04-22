@@ -39,19 +39,19 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-6">
             <a href="{{ route('tasks.create') }}" class="btn btn-info">@lang('tasks.new')</a>
-            {{-- @can('update', $tasklist) --}}
-                <a href="{{ route('tasklists.edit', [$tasklist->id]) }}" class="btn btn-info">@lang('tasks.edit')</a>
-            {{-- @endcan --}}
+            @can('update', $tasklist)
+                <a href="{{ route('tasklists.edit', [$tasklist->id]) }}" class="btn btn-info">@lang('tasklists.edit')</a>
+            @endcan
 
         </div>
         <div class="col-lg-6 col-md-6 col-6 text-right">
-            {{-- @can('delete', $tasklist) --}}
+            @can('delete', $tasklist)
                 <form action="{{ route('tasklists.destroy', [$tasklist->id]) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <input type="submit" value="@lang('tasks.delete')" class="btn btn-danger">
+                    <input type="submit" value="@lang('tasklists.delete')" class="btn btn-danger">
                 </form>
-            {{-- @endcan --}}
+            @endcan
         </div>
     </div>
 

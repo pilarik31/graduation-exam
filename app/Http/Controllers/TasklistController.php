@@ -9,6 +9,11 @@ use Illuminate\View\View;
 
 class TasklistController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Tasklist::class, 'tasklist');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -77,7 +82,6 @@ class TasklistController extends Controller
         ]);
         $tasklist->update($validatedData);
         return redirect()->route('tasklists.index')->with('success', "Tasklist $tasklist->name edited.");
-
     }
 
     /**

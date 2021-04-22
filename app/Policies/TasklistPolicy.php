@@ -3,10 +3,11 @@
 namespace App\Policies;
 
 use App\Models\Client;
+use App\Models\Tasklist;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class ClientPolicy
+class TasklistPolicy
 {
     use HandlesAuthorization;
 
@@ -15,19 +16,15 @@ class ClientPolicy
      */
     public function viewAny(Client $client): Response
     {
-        return ($client->isAdmin())
-            ? Response::allow()
-            : Response::deny(trans('response.403'), 403);
+        return Response::allow();
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(Client $client): Response
+    public function view(Client $client, Tasklist $tasklist): Response
     {
-        return ($client->isAdmin() || $client->isCurrentUser())
-            ? Response::allow()
-            : Response::deny(trans('response.403'), 403);
+        return Response::allow();
     }
 
     /**
@@ -35,7 +32,7 @@ class ClientPolicy
      */
     public function create(Client $client): Response
     {
-        return ($client->isAdmin())
+        return ($client->isAdmin() || $client->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -43,9 +40,9 @@ class ClientPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(Client $client): Response
+    public function update(Client $client, Tasklist $tasklist): Response
     {
-        return ($client->isAdmin())
+        return ($client->isAdmin() || $client->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -53,9 +50,9 @@ class ClientPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(Client $client): Response
+    public function delete(Client $client, Tasklist $tasklist): Response
     {
-        return ($client->isAdmin())
+        return ($client->isAdmin() || $client->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -63,7 +60,7 @@ class ClientPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(Client $client): void
+    public function restore(Client $client, Tasklist $tasklist): void
     {
         //
     }
@@ -71,7 +68,7 @@ class ClientPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(Client $client): void
+    public function forceDelete(Client $client, Tasklist $tasklist): void
     {
         //
     }

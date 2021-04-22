@@ -12,7 +12,7 @@
                     @method('PATCH')
                     <div class="form-group">
                         @csrf
-                        <label for="name">@lang('tasklists.task-name')</label>
+                        <label for="name">@lang('tasklists.name')</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{ $tasklist->name }}">
                         @error('name')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>

@@ -21,6 +21,7 @@
             @endforeach
         </tbody>
     </table>
-
-    <a href="{{ route('tasklists.create') }}" class="btn btn-info">@lang('tasklists.new')</a>
+    @can('create', $tasklist)
+        <a href="{{ route('tasklists.create') }}" class="btn btn-info">@lang('tasklists.new')</a>
+    @endcan
 @endsection
