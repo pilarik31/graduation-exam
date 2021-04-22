@@ -81,6 +81,9 @@ class Client extends Authenticable
         'password', 'remember_token'
     ];
 
+    /**
+     * @var array
+     */
     protected $casts = [
         'birthday' => 'datetime',
     ];

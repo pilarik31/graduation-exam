@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property strint $name
+ * @property string $name
  */
 class Role extends Model
 {
