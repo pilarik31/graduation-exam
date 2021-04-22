@@ -12,37 +12,37 @@
                     @method('PATCH')
                     <div class="form-group">
                         @csrf
-                        <label for="firstname">Client firstname</label>
+                        <label for="firstname">@lang('clients.firstname')</label>
                         <input type="text" name="firstname" id="firstname" class="form-control" value="{{ $client->firstname }}">
                         @error('firstname')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="lastname">Client lastname</label>
+                        <label for="lastname">@lang('clients.lastname')</label>
                         <input type="text" name="lastname" id="lastname" class="form-control" value="{{ $client->lastname }}">
                         @error('lastname')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="email">Email</label>
+                        <label for="email">@lang('clients.email')</label>
                         <input type="email" name="email" id="email" class="form-control" value="{{ $client->email }}">
                         @error('email')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="password">Password</label>
+                        <label for="password">@lang('clients.password')</label>
                         <input type="password" name="password" id="password" class="form-control">
                         @error('password')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="address">Address</label>
+                        <label for="address">@lang('clients.address')</label>
                         <input type="text" name="address" id="address" class="form-control" value="{{ $client->address }}">
                         @error('address')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
-                        <label for="city">City</label>
+                        <label for="city">@lang('clients.city')</label>
                         <input type="text" name="city" id="city" class="form-control" value="{{ $client->city }}">
                         @error('city')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>

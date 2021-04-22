@@ -9,4 +9,7 @@ return [
     'new' => 'Vytvořit nový úkol',
     'task-name' => 'Název úkolu',
     'save' => 'Uložit',
+    'edit' => 'Upravit',
+    'delete' => 'Smazat',
+    'implementer' => 'Zpracovatel'
 ];

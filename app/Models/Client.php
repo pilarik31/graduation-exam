@@ -54,6 +54,11 @@ class Client extends Authenticable
         return $this->role->id === 2;
     }
 
+    public function isCurrentUser(): bool
+    {
+        return $this->id === auth()->id();
+    }
+
     protected $guarded = [
         'id',
     ];

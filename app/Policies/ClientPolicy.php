@@ -5,6 +5,9 @@ namespace App\Policies;
 use App\Models\Client;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class ClientPolicy
 {
@@ -25,7 +28,7 @@ class ClientPolicy
      */
     public function view(Client $client): Response
     {
-        return ($client->isAdmin())
+        return ($client->isAdmin() || $client->isCurrentUser())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }

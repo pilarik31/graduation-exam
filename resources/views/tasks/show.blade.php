@@ -16,8 +16,10 @@
                         </a>
                     </h4>
                     <h4>
-                        Implementer:
-                        @dump($task->implementer)
+                        @lang('tasks.implementer'):
+                        <a href="{{ route('clients.show', $implementer->id) }}">
+                            {{ $implementer->firstname . ' ' . $implementer->lastname }}
+                        </a>
                     </h4>
                     <p>{{ $task->description }}</p>
                     @isset($task->from)
@@ -31,7 +33,7 @@
 
                         <div class="col-lg-6 col-md-6 col-6">
                             @can('update', $task)
-                                <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">@lang('general.edit')</a>
+                                <a href="{{ route('tasks.edit', [$task->id]) }}" class="btn btn-info">@lang('tasks.edit')</a>
                             @endcan
                         </div>
 
@@ -40,7 +42,7 @@
                                 <form action="{{ route('tasks.destroy', [$task->id]) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <input type="submit" value="@lang('general.delete')" class="btn btn-danger">
+                                    <input type="submit" value="@lang('tasks.delete')" class="btn btn-danger">
                                 </form>
                             @endcan
                         </div>

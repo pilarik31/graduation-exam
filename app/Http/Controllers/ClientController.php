@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Role;
+use App\Models\Task;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -75,6 +76,7 @@ class ClientController extends Controller
         return view('clients.show', [
             'client' => Client::findOrFail($client->id),
             'tasks' => Client::findOrFail($client->id)->tasks,
+            'implements' => Task::all()->where('implementer_id', '=', $client->id),
         ]);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Task;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ class TaskController extends Controller
      */
     public function create(): View
     {
-        return view('tasks.create');
+        return view('tasks.create', [
+            'clients' => Client::all(),
+        ]);
     }
 
     /**
@@ -41,6 +44,7 @@ class TaskController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'string|nullable',
+            'implementer_id' => 'integer',
             'from' => 'date|nullable',
             'to' => 'date|nullable',
         ], [
@@ -58,6 +62,7 @@ class TaskController extends Controller
     {
         return view('tasks.show', [
             'task' => Task::findOrFail($task->id),
+            'implementer' => Client::findOrFail($task->implementer_id),
         ]);
     }
 
@@ -68,6 +73,7 @@ class TaskController extends Controller
     {
         return view('tasks.edit', [
             'task' => Task::findOrFail($task->id),
+            'clients' => Client::all(),
         ]);
     }
 
@@ -79,6 +85,7 @@ class TaskController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'string|nullable',
+            'implementer_id' => 'integer',
             'from' => 'date|nullable',
             'to' => 'date|nullable',
         ], [

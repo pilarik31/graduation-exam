@@ -13,6 +13,10 @@ return [
     'address' => 'Address',
     'city' => 'City',
     'role' => [
+        'singular' => 'Role',
         'select' => 'Choose role',
     ],
+    'delete' => 'Delete',
+    'edit' => 'Edit'
+
 ];

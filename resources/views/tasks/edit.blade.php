@@ -21,6 +21,21 @@
                         <label for="description">@lang('tasks.description')</label>
                         <textarea type="" name="description" id="description" class="form-control">{{ $task->description }}</textarea>
 
+                        <label for="implementer_id">@lang('tasks.implementer')</label>
+                        <select name="implementer_id" id="implementer_id" class="form-control">
+                            @foreach ($clients->where('role_id', '=', 2) as $implementer)
+                                @if ($task->implementer_id === $implementer->id)
+                                    <option selected="selected" value="{{ $implementer->id }}">
+                                        {{ $implementer->firstname . ' ' . $implementer->lastname }}
+                                    </option>
+                                @else
+                                    <option value="{{ $implementer->id }}">
+                                        {{ $implementer->firstname . ' ' . $implementer->lastname }}
+                                    </option>
+                                @endif
+                            @endforeach
+                        </select>
+
                         <label for="from">@lang('tasks.from')</label>
                         <input type="date" name="from" id="from" class="form-control"
                         value=
