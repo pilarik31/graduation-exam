@@ -37,12 +37,17 @@ class Task extends Model
         return $this->hasOne(Client::class, 'id');
     }
 
+    public function tasklist()
+    {
+        $this->hasOne(Tasklist::class);
+    }
+
     protected $guarded = [
         'id',
     ];
 
     protected $fillable = [
-        'title', 'description', 'from', 'to', 'client_id', 'implementer_id'
+        'title', 'description', 'from', 'to', 'client_id', 'implementer_id', 'tasklist_id'
     ];
 
     protected $casts = [

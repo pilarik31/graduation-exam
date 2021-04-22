@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Task;
+use App\Models\Tasklist;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,7 @@ class TaskController extends Controller
     {
         return view('tasks.create', [
             'clients' => Client::all(),
+            'tasklists' => Tasklist::all(),
         ]);
     }
 
@@ -45,10 +47,12 @@ class TaskController extends Controller
             'title' => 'required',
             'description' => 'string|nullable',
             'implementer_id' => 'integer',
+            'tasklist_id' => 'integer|required',
             'from' => 'date|nullable',
             'to' => 'date|nullable',
         ], [
-            'title.required' => 'Task name is required!'
+            'title.required' => 'Task name is required!',
+            'tasklist_id' => 'Tasklist is required'
         ]);
         $validatedData += ['client_id' => Auth::id()];
         Task::create($validatedData);
@@ -74,6 +78,7 @@ class TaskController extends Controller
         return view('tasks.edit', [
             'task' => Task::findOrFail($task->id),
             'clients' => Client::all(),
+            'tasklists' => Tasklist::all(),
         ]);
     }
 
@@ -86,10 +91,12 @@ class TaskController extends Controller
             'title' => 'required',
             'description' => 'string|nullable',
             'implementer_id' => 'integer',
+            'tasklist_id' => 'integer|required',
             'from' => 'date|nullable',
             'to' => 'date|nullable',
         ], [
-            'title.required' => 'Task name is required!'
+            'title.required' => 'Task name is required!',
+            'tasklist_id.required' => 'Task ID is required!',
         ]);
         $task->update($validatedData);
         return redirect()->route('tasks.index')->with('success', "Task $task->title edited.");

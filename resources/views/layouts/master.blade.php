@@ -15,6 +15,7 @@
                     <nav class="nav flex-column">
                         <a class="nav-link" href="/">@lang('general.dashboard')</a>
                         <a class="nav-link" href="{{ route('tasks.index') }}">@lang('tasks.plural')</a>
+                        <a class="nav-link" href="{{ route('tasklists.index') }}">@lang('tasklists.plural')</a>
                         @can('view-any', auth()->user())
                             <a class="nav-link" href="{{ route('clients.index') }}">@lang('clients.plural')</a>
                         @endcan

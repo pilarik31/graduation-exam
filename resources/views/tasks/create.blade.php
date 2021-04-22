@@ -28,6 +28,13 @@
                             @endforeach
                         </select>
 
+                        <label for="tasklist_id">@lang('tasklists.singular')</label>
+                        <select name="tasklist_id" id="tasklist_id" class="form-control">
+                            @foreach ($tasklists as $tasklist)
+                                <option value="{{ $tasklist->id }}">{{ $tasklist->name }}</option>
+                            @endforeach
+                        </select>
+
                         <label for="from">@lang('tasks.from')</label>
                         <input type="date" name="from" id="from" class="form-control">
 

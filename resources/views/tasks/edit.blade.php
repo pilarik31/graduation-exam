@@ -36,6 +36,21 @@
                             @endforeach
                         </select>
 
+                        <label for="tasklist_id">@lang('tasklists.singular')</label>
+                        <select name="tasklist_id" id="tasklist_id" class="form-control">
+                            @foreach ($tasklists as $tasklist)
+                                @if ($task->tasklist_id === $tasklist->id)
+                                    <option selected="selected" value="{{ $tasklist->id }}">
+                                        {{ $tasklist->name }}
+                                    </option>
+                                @else
+                                    <option value="{{ $tasklist->id }}">
+                                        {{ $tasklist->name }}
+                                    </option>
+                                @endif
+                            @endforeach
+                        </select>
+
                         <label for="from">@lang('tasks.from')</label>
                         <input type="date" name="from" id="from" class="form-control"
                         value=
