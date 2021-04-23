@@ -1,0 +1,28 @@
+.sidebar {
+    background: #2c2f33;
+
+    a {
+        color: #807f7f;
+        text-decoration: none;
+        &:hover {
+            color: lighten(#807f7f, 10%);
+        }
+    }
+
+    .role {
+        color: #807f7f;
+    }
+
+    nav {
+        a {
+            i {
+                margin-right: 1em;
+            }
+
+            &.active {
+                background: #1d1e21;
+                border-radius: 0.5em;
+            }
+        }
+    }
+}

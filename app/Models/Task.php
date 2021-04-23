@@ -39,7 +39,7 @@ class Task extends Model
 
     public function tasklist(): HasOne
     {
-        $this->hasOne(Tasklist::class);
+        return $this->hasOne(Tasklist::class);
     }
 
     /**

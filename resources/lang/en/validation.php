@@ -129,12 +129,6 @@ return [
     |
     */
 
-    'email' => [
-        'empty' => 'Email is required.',
-    ],
-    'password' => [
-        'empty' => 'Password is required.'
-    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -149,6 +143,6 @@ return [
 
     'attributes' => [],
 
-    
+
 
 ];
