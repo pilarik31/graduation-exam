@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Clients')
+@section('title', __('clients.plural'))
 
 @section('content')
     <h1>@lang('clients.plural')</h1>

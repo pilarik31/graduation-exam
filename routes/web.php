@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TasklistController;
@@ -27,6 +28,9 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 // OAuth2
 Route::get('oauth/{driver}', [LoginController::class, 'redirectToProvider'])->name('social.oauth');
 Route::get('oauth/{driver}/callback', [LoginController::class, 'handleProviderCallback'])->name('social.callback');
+
+// Language
+Route::get('lang/{locale}', [LocalizationController::class, 'lang']);
 
 // Application logic.
 Route::resource('/', DashboardController::class)->middleware('auth');

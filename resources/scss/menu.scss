@@ -1,5 +1,7 @@
 .sidebar {
     background: #2c2f33;
+    height: auto;
+    min-height: 100vh;
 
     a {
         color: #807f7f;
@@ -25,4 +27,8 @@
             }
         }
     }
+}
+
+.content {
+    height: fit-content;
 }

@@ -11,7 +11,14 @@
     <body class="antialiased">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2 col-md-2 sidebar vh-100">
+                <div class="col-lg-2 col-md-2 sidebar">
+
+                    <div class="row text-center m-3">
+                        <div class="col-lg-12 ">
+                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="rounded-circle" alt="Profile picture">
+                        </div>
+                    </div>
+
                     <nav class="nav flex-column">
                         <a class="nav-link {{ activeMenu('/') }}" href="/">
                             <i class="bi bi-file-bar-graph-fill"></i>
@@ -32,37 +39,22 @@
                             </a>
                         @endcan
 
+                        @include('lang.lang')
+
+                        <a class="nav-link {{ activeMenu('clients/' . auth()->user()->id) }}" href="{{ route('clients.show', auth()->user()->id) }}">
+                            <i class="bi bi-person-circle"></i>
+                            @lang('clients.profile')
+                        </a>
+
+                        <a class="nav-link" href="{{ route('logout') }}">
+                            <i class="bi bi-plug"></i>
+                            @lang('auth.logout')
+                        </a>
                     </nav>
-
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="rounded-circle" alt="Profile picture">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <a href="{{ route('clients.show', auth()->user()->id) }}">
-                                {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6 role">
-                            {{ __("roles." . auth()->user()->role->name) }}
-                        </div>
-
-                        <div class="col-lg-6">
-                            <a href="{{ route('logout') }}">
-                                @lang('auth.logout')
-                            </a>
-                        </div>
-                    </div>
 
                 </div>
 
-                <div class="col-lg-10 col-md-10">
+                <div class="col-lg-10 col-md-10 content">
                     @yield('content')
                 </div>
             </div>

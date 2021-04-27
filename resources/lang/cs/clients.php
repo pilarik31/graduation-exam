@@ -18,5 +18,6 @@ return [
         'select' => 'Vybrat roli',
     ],
     'delete' => 'Smazat',
-    'edit' => 'Upravit'
+    'edit' => 'Upravit',
+    'profile' => 'Profil'
 ];
