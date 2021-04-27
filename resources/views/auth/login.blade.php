@@ -30,7 +30,10 @@
 
             <a href="{{ route('social.oauth', 'github') }}" class="oauth-github">
                 <i class="bi-github"></i>
+            </a>
 
+            <a href="{{ route('social.oauth', 'google') }}" class="oauth-google">
+                <i class="bi-google"></i>
             </a>
 
     </form>

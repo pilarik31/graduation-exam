@@ -6,7 +6,6 @@ use App\Models\Client;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Laravel\Socialite\Contracts\User;
@@ -15,7 +14,7 @@ use Laravel\Socialite\Facades\Socialite;
 class LoginController extends Controller
 {
     protected array $providers = [
-        'github',
+        'github', //'google'
     ];
 
     public function index(): View
@@ -43,28 +42,38 @@ class LoginController extends Controller
         }
     }
 
-    protected function loginOAuth(User $providerUser, string $driver)
+    /**
+     * Handle an authentication attepmt from OAuth2.
+     */
+    protected function loginOAuth(User $providerUser, string $driver): RedirectResponse
     {
-        /** @var Client */
         $user = Client::where('email', $providerUser->getEmail())->first();
 
         if ($user) {
             $user->update([
                 'provider' => $driver,
                 'provider_id' => $providerUser->getId(),
+                // @phpstan-ignore-next-line
                 'access_token' => $providerUser->token
             ]);
 
             Auth::login($user, true);
             return $this->sendSuccessResponse();
         }
-        $this->sendFailedResponse();
+        return $this->sendFailedResponse(__('auth.oauth.user-not-exist'));
     }
 
-    public function redirectToProvider($driver): RedirectResponse
+    /**
+     * Attempts redirect to specified OAuth2 provider.
+     */
+    public function redirectToProvider(string $driver): RedirectResponse
     {
         if (!$this->isProviderAllowed($driver)) {
-            return $this->sendFailedResponse("{$driver} is currently not supported.");
+            return $this->sendFailedResponse(
+                ucfirst(
+                    __('auth.oauth.not-supported', ['provider' => $driver])
+                )
+            );
         }
 
         try {
@@ -74,7 +83,10 @@ class LoginController extends Controller
         }
     }
 
-    public function handleProviderCallback(string $driver)
+    /**
+     * Handles callback from OAuth2 provider.
+     */
+    public function handleProviderCallback(string $driver): RedirectResponse
     {
         try {
             $user = Socialite::driver($driver)->user();
@@ -105,10 +117,13 @@ class LoginController extends Controller
     {
         return redirect()->route('login')->with(
             'error',
-            $msg ?: 'Unable to login, try another authentication method.'
+            $msg ?: __('auth.oauth.failed')
         );
     }
 
+    /**
+     * Whether the provider is supported in the app.
+     */
     private function isProviderAllowed(string $driver): bool
     {
         return in_array($driver, $this->providers, true) && config()->has("services.{$driver}");
