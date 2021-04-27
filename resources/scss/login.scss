@@ -5,6 +5,29 @@ body {
     background: #34495e;
 }
 
+@font-face {
+    font-family: "bootstrap-icons";
+    src: url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff2?017203f08de6f4e2d40b4d746a0da2a5) format("woff2"),
+            url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?0f69dcdb26d3536aa3fec3f600ad5950) format("woff");
+}
+
+  [class^="bi-"]::before,
+  [class*=" bi-"]::before {
+    display: inline-block;
+    font-family: bootstrap-icons;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.bi-github::before { content: "\f3ed"; font-size: 3em; }
+
+
 .login-box {
     width: 300px;
     padding: 40px;
@@ -52,6 +75,23 @@ body {
         border-radius: 24px;
         transition: 0.25s;
         cursor: pointer;
+
+        &:hover {
+            background: #2ecc71;
+        }
+    }
+
+    .oauth-github {
+        width: 3em;
+        background: none;
+        display: block;
+        color: white;
+        //border: 2px solid #2ecc71;
+        //padding: 14px 40px;
+        //margin: 20px auto;
+        border-radius: 100%;
+        transition: 0.25s;
+        text-decoration: none;
 
         &:hover {
             background: #2ecc71;

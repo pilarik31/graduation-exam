@@ -25,8 +25,17 @@
                     <div class="error">{{ $errors->first('password')  }}</div>
                 @endif
             </div>
+
             <input type="submit" value="@lang('auth.login.btn')" class="login-btn">
+
+            <a href="{{ route('social.oauth', 'github') }}" class="oauth-github">
+                <i class="bi-github"></i>
+
+            </a>
+
     </form>
+
+
 
 </body>
 </html>

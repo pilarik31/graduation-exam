@@ -23,6 +23,11 @@ class CreateClientsTable extends Migration
                 $table->string('address')->nullable();
                 $table->string('city')->nullable();
                 $table->foreignId('role_id');
+
+                $table->string('provider', 20)->nullable();
+                $table->string('provider_id')->nullable();
+                $table->string('access_token')->nullable();
+
                 $table->rememberToken();
                 $table->timestamps();
             }

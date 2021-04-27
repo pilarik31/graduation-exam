@@ -24,6 +24,10 @@ Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+// OAuth2
+Route::get('oauth/{driver}', [LoginController::class, 'redirectToProvider'])->name('social.oauth');
+Route::get('oauth/{driver}/callback', [LoginController::class, 'handleProviderCallback'])->name('social.callback');
+
 // Application logic.
 Route::resource('/', DashboardController::class)->middleware('auth');
 Route::resource('clients', ClientController::class)->middleware('auth');
