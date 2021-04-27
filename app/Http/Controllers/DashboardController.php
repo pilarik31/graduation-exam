@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -13,7 +14,9 @@ class DashboardController extends Controller
      */
     public function index(): View
     {
-        return view('dashboard.index');
+        return view('dashboard.index', [
+            'latestComments' => Comment::latest()->take(5)->get()
+        ]);
     }
 
     /**
