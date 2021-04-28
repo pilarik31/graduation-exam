@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff0ce374b8e8cbfc84a0de4688854516",
+    "content-hash": "9c3cf43fdfe55edfc7e62d124f8bf5a8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -855,6 +855,126 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.8.1"
             },
             "time": "2021-03-21T16:25:00+00:00"
+        },
+        {
+            "name": "ixudra/curl",
+            "version": "6.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ixudra/curl.git",
+                "reference": "796bd307ca35c66a3f6a47b559f8ccad9f06e93f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ixudra/curl/zipball/796bd307ca35c66a3f6a47b559f8ccad9f06e93f",
+                "reference": "796bd307ca35c66a3f6a47b559f8ccad9f06e93f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "illuminate/support": ">=4.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ixudra\\Curl\\CurlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Curl": "Ixudra\\Curl\\Facades\\Curl"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ixudra\\Curl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Oris",
+                    "email": "jan.oris@ixudra.be"
+                }
+            ],
+            "description": "Custom PHP Curl library for the Laravel framework - developed by Ixudra",
+            "homepage": "http://ixudra.be",
+            "keywords": [
+                "Ixudra",
+                "curl",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/ixudra/curl/issues",
+                "source": "https://github.com/ixudra/curl/tree/6.21.0"
+            },
+            "time": "2020-09-22T12:50:01+00:00"
+        },
+        {
+            "name": "ixudra/toggl",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ixudra/toggl.git",
+                "reference": "70980d753a28fdcf2ca5be159e3f85a122f3a5c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ixudra/toggl/zipball/70980d753a28fdcf2ca5be159e3f85a122f3a5c2",
+                "reference": "70980d753a28fdcf2ca5be159e3f85a122f3a5c2",
+                "shasum": ""
+            },
+            "require": {
+                "ixudra/curl": "~6.0",
+                "nesbot/carbon": ">=1.19",
+                "php": ">=5.6.0"
+            },
+            "suggest": {
+                "illuminate/support": "Support for laravel using the TogglServiceProvider"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ixudra\\Toggl\\TogglServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toggl": "Ixudra\\Toggl\\Facades\\Toggl"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ixudra\\Toggl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Oris",
+                    "email": "jan.oris@ixudra.be"
+                }
+            ],
+            "description": "Custom PHP library to connect with the Toggl API - developed by Ixudra",
+            "homepage": "https://ixudra.be",
+            "keywords": [
+                "Ixudra",
+                "api",
+                "laravel",
+                "toggl"
+            ],
+            "support": {
+                "issues": "https://github.com/ixudra/toggl/issues",
+                "source": "https://github.com/ixudra/toggl/tree/1.1.1"
+            },
+            "time": "2021-04-21T06:41:06+00:00"
         },
         {
             "name": "laravel/framework",

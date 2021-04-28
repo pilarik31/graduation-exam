@@ -40,6 +40,10 @@ return [
         'client_id' => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
         'redirect' => env('APP_URL') . '/oauth/google/callback'
-    ]
+    ],
 
+    'toggl' => [
+        'workspace' => env('TOGGL_WORKSPACE'),
+        'token' => env('TOGGL_TOKEN'),
+    ],
 ];
