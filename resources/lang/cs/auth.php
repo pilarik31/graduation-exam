@@ -6,6 +6,7 @@ return [
     "oauth" => [
         "failed" => "Nepodařilo se přihlásit. Zkuste jinou autentikační metodu.",
         "not-supported" => ":provider není podporován.",
+        "returned-no-email" => ":provider nevrátil žádný email.",
         "user-not-exist" => "Uživatel neexistuje a systém nepodboruje registraci ze strany uživatele."
     ],
     "success" => "Úspěšně přihlášen.",

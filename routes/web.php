@@ -30,7 +30,7 @@ Route::get('oauth/{driver}', [LoginController::class, 'redirectToProvider'])->na
 Route::get('oauth/{driver}/callback', [LoginController::class, 'handleProviderCallback'])->name('social.callback');
 
 // Language
-Route::get('lang/{locale}', [LocalizationController::class, 'lang']);
+Route::get('lang/{locale}', [LocalizationController::class, 'lang'])->name('lang.locale');
 
 // Application logic.
 Route::resource('/', DashboardController::class)->middleware('auth');

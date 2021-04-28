@@ -30,11 +30,13 @@ class TaskController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
+        $request->session()->reflash();
         return view('tasks.create', [
             'clients' => Client::all(),
             'tasklists' => Tasklist::all(),
+            'tasklistPreselect' => $request->session()->get('tasklist'),
         ]);
     }
 

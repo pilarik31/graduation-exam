@@ -6,7 +6,7 @@
         <span class="caret"></span>
     </a>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="lang/en">English</a>
-        <a class="dropdown-item" href="lang/cs">Czech</a>
+        <a class="dropdown-item" href="{{ route('lang.locale', ['locale' => 'en']) }}">English</a>
+        <a class="dropdown-item" href="{{ route('lang.locale', ['locale' => 'cs']) }}">Czech</a>
     </div>
 </li>

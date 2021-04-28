@@ -27,11 +27,14 @@
                                 <option value="{{ $implementer->id }}">{{ $implementer->firstname . ' ' . $implementer->lastname }}</option>
                             @endforeach
                         </select>
-
                         <label for="tasklist_id">@lang('tasklists.singular')</label>
                         <select name="tasklist_id" id="tasklist_id" class="form-control">
                             @foreach ($tasklists as $tasklist)
-                                <option value="{{ $tasklist->id }}">{{ $tasklist->name }}</option>
+                                @if ($tasklist->id === $tasklistPreselect)
+                                    <option selected="selected" value="{{ $tasklist->id }}">{{ $tasklist->name }}</option>
+                                @else
+                                    <option value="{{ $tasklist->id }}">{{ $tasklist->name }}</option>
+                                @endif
                             @endforeach
                         </select>
 

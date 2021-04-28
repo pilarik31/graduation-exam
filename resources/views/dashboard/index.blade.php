@@ -13,7 +13,7 @@
             @foreach($latestComments as $comment)
                 <div class="row border-bottom pb-1">
                     <div class="col-lg-6">
-                        <img src="{{ Gravatar::src($comment->client->email, 40) }}" class="rounded-circle">
+                        <img src="{{ Gravatar::src($comment->client->email, 40) }}" class="rounded-circle" alt="Profile picture">
                         <strong>{{ $comment->client->firstname }} {{ $comment->client->lastname }}</strong>
                         &#8594;
                         <a href="{{ route('tasks.show', $comment->task) }}">{{ $comment->task->title }}</a>

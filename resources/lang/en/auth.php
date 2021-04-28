@@ -6,6 +6,7 @@ return [
     "oauth" => [
         "failed" => "Login failed. Try using another authentication method.",
         "not-supported" => ":provider is not supported.",
+        "returned-no-email" => "No email id returned from :provider provider.",
         "user-not-exist" => "User does not exist and the system does not support creating profile by the user."
     ],
     "success" => "Successfully logged in.",

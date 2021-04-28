@@ -53,6 +53,7 @@ class TasklistController extends Controller
      */
     public function show(Tasklist $tasklist): View
     {
+        session()->flash('tasklist', $tasklist->id);
         return view('tasklists.show', [
             'tasklist' => $tasklist,
             'tasks' => $tasklist->tasks,

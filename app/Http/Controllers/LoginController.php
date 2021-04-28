@@ -69,9 +69,11 @@ class LoginController extends Controller
     public function redirectToProvider(string $driver): RedirectResponse
     {
         if (!$this->isProviderAllowed($driver)) {
+            /** @var string */
+            $msg = __('auth.oauth.not-supported', ['provider' => $driver]);
             return $this->sendFailedResponse(
                 ucfirst(
-                    __('auth.oauth.not-supported', ['provider' => $driver])
+                    $msg
                 )
             );
         }
@@ -95,7 +97,7 @@ class LoginController extends Controller
         }
 
         return empty($user->getEmail())
-            ? $this->sendFailedResponse("No email id returned from {$driver} provider.")
+            ? $this->sendFailedResponse(__('auth.oauth.returned-no-email', ['provider' => $driver]))
             : $this->loginOAuth($user, $driver);
     }
 
@@ -113,7 +115,7 @@ class LoginController extends Controller
         return redirect()->intended();
     }
 
-    protected function sendFailedResponse(?string $msg = null): RedirectResponse
+    protected function sendFailedResponse(string|array|null $msg = null): RedirectResponse
     {
         return redirect()->route('login')->with(
             'error',
