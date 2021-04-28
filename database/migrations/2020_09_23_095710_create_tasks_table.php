@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->foreignId('client_id');
             $table->integer('implementer_id')->nullable();
             $table->foreignId('tasklist_id');
+            $table->boolean('completed')->default(false);
             $table->timestamp('from')->nullable();
             $table->timestamp('to')->nullable();
             $table->timestamps();

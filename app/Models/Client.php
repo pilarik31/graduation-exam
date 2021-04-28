@@ -59,6 +59,11 @@ class Client extends Authenticable
         return $this->id === auth()->id();
     }
 
+    public function getFullname(): string
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
     protected $guarded = [
         'id',
     ];

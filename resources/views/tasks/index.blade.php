@@ -10,6 +10,7 @@
     <table class="table">
         <thead>
             <th>@lang('tasks.singular')</th>
+            <th>@lang('tasks.implementer')</th>
             <th>@lang('tasks.description')</th>
             <th>@lang('tasks.from')</th>
             <th>@lang('tasks.deadline')</th>
@@ -18,7 +19,19 @@
             @foreach ($tasks as $task)
                 @can('view', $task)
                 <tr>
-                    <td><a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a></td>
+                    <td>
+                        @can('complete', $task)
+                            <form class="complete-form" action="{{ route('tasks.complete', $task) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn {{ ($task->completed) ? 'complete--completed' : 'complete' }}" onclick="this.form.submit">
+                                    <i class="checkmark"></i>
+                                </button>
+                            </form>
+                        @endcan
+                        <a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a>
+                    </td>
+                    <td></td>
                     <td class="w-50">{{ $task->description }}</td>
                     <td>
                     @isset($task->from)

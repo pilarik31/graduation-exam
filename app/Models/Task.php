@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int $id
  * @property string $title
  * @property string $description
+ * @property bool $completed
  * @property Client $client
  * @property Client $implementer_id
  * @property DateTime $from
@@ -53,7 +54,7 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'from', 'to', 'client_id', 'implementer_id', 'tasklist_id'
+        'title', 'description', 'from', 'to', 'client_id', 'implementer_id', 'tasklist_id', 'completed'
     ];
 
     /**

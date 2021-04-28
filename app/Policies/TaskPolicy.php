@@ -61,6 +61,14 @@ class TaskPolicy
             : Response::deny(trans('response.403'), 403);
     }
 
+    public function complete(Client $client)
+    {
+        return ($client->isAdmin() || $client->isImplementer())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
+        //return Response::allow();
+    }
+
     /**
      * Determine whether the user can restore the model.
      */

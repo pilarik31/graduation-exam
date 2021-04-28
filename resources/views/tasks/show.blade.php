@@ -8,7 +8,17 @@
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
                 <div class="shadow p-3 bg-white rounded">
-                    <h2>{{ $task->title }}</h2>
+                    <h2>{{ $task->title }}
+                        @can('complete', $task)
+                        <form class="complete-form" action="{{ route('tasks.complete', $task) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button class="btn {{ ($task->completed) ? 'complete--completed' : 'complete' }}" onclick="this.form.submit">
+                                <i class="checkmark"></i>
+                            </button>
+                        </form>
+                        @endcan
+                    </h2>
                     <h4>
                         @lang('clients.singular'):
                         <a href="{{ route("clients.show", [$task->client->id]) }}">

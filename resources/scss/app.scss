@@ -1,4 +1,39 @@
 @import "~bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 @import "menu";
-@import "dashboard"
+@import "dashboard";
+
+.complete-form {
+    display: inline;
+}
+
+.complete {
+    display: inline-block;
+    padding: 0 0 0 0;
+    border: 0.02em black solid;
+    border-radius: 50%;
+    transition: 0.5s;
+    &:hover {
+        background: #60de3a;
+    }
+    &--completed {
+        display: inline-block;
+        padding: 0 0 0 0;
+        border: 0.02em black solid;
+        border-radius: 50%;
+        transition: 0.5s;
+        background: #60de3a;
+    }
+}
+.checkmark {
+    &::before {
+        display: inline-block;
+        content: "";
+        width: 2em;
+        height: 2em;
+        vertical-align: -50%;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg>");
+        background-repeat: no-repeat;
+        background-size: 2rem 2rem;
+    }
+}

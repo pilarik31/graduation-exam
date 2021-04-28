@@ -112,4 +112,15 @@ class TaskController extends Controller
         Task::destroy($task->id);
         return redirect()->route('tasks.index');
     }
+
+    public function complete(Task $task)
+    {
+        $this->authorize('complete', $task);
+        if ($task->completed) {
+            $task->update(['completed' => 0]);
+        } else {
+            $task->update(['completed' => 1]);
+        }
+        return redirect()->back();
+    }
 }
