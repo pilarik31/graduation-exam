@@ -1,12 +1,11 @@
 <?php
-
 return [
-    'singular' => 'Seznam úkolů',
-    'plural' => 'Seznamy úkolů',
-    'description' => 'Popis',
-    'new' => 'Nový seznam úkolů',
-    'name' => 'Název',
-    'save' => 'Uložit',
-    'delete' => 'Smazat seznam',
-    'edit' => 'Upravit seznam'
+    "delete" => "Smazat seznam",
+    "description" => "Popis",
+    "edit" => "Upravit seznam",
+    "name" => "Název",
+    "new" => "Nový seznam úkolů",
+    "plural" => "Seznamy úkolů",
+    "save" => "Uložit",
+    "singular" => "Seznam úkolů"
 ];

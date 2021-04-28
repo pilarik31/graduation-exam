@@ -1,23 +1,19 @@
 <?php
-
 return [
-    'singular' => 'Klient',
-    'plural' => 'Klienti',
-    'new' => 'Vytvořit nového klienta',
-    'name' => 'Jméno',
-    'firstname' => 'Jméno',
-    'lastname' => 'Příjmení',
-    'email' => 'Email',
-    'password' => 'Heslo',
-    'phone' => 'Telefon',
-    'birthday' => 'Datum narození',
-    'address' => 'Adresa',
-    'city' => 'Město',
-    'role' => [
-        'singular' => 'Role',
-        'select' => 'Vybrat roli',
-    ],
-    'delete' => 'Smazat',
-    'edit' => 'Upravit',
-    'profile' => 'Profil'
+    "address" => "Adresa",
+    "birthday" => "Datum narození",
+    "city" => "Město",
+    "delete" => "Smazat",
+    "edit" => "Upravit",
+    "email" => "Email",
+    "firstname" => "Jméno",
+    "lastname" => "Příjmení",
+    "name" => "Jméno",
+    "new" => "Vytvořit nového klienta",
+    "password" => "Heslo",
+    "phone" => "Telefon",
+    "plural" => "Klienti",
+    "profile" => "Profil",
+    "role" => ["select" => "Vybrat roli", "singular" => "Role"],
+    "singular" => "Klient"
 ];

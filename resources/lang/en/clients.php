@@ -1,22 +1,19 @@
 <?php
-
 return [
-    'singular' => 'Client',
-    'plural' => 'Clients',
-    'new' => 'Create new client',
-    'firstname' => 'Firstname',
-    'lastname' => 'Lastname',
-    'email' => 'Email',
-    'password' => 'Password',
-    'phone' => 'Phone',
-    'birthday' => 'Birthday',
-    'address' => 'Address',
-    'city' => 'City',
-    'role' => [
-        'singular' => 'Role',
-        'select' => 'Choose role',
-    ],
-    'delete' => 'Delete',
-    'edit' => 'Edit'
-
+    "address" => "Address",
+    "birthday" => "Birthday",
+    "city" => "City",
+    "delete" => "Delete",
+    "edit" => "Edit",
+    "email" => "Email",
+    "firstname" => "Firstname",
+    "lastname" => "Lastname",
+    "name" => "Name",
+    "new" => "Create new client",
+    "password" => "Password",
+    "phone" => "Phone",
+    "plural" => "Clients",
+    "profile" => "Profile",
+    "role" => ["select" => "Choose role", "singular" => "Role"],
+    "singular" => "Client"
 ];

@@ -1,8 +1,2 @@
 <?php
-
-return [
-    'dashboard' => 'Nástěnka',
-    'comments'=> [
-        'latest' => 'Nejnovější komentáře',
-    ],
-];
+return ["comments" => ["latest" => "Nejnovější komentáře"], "dashboard" => "Nástěnka"];

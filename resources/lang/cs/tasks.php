@@ -1,15 +1,15 @@
 <?php
-
 return [
-    'singular' => 'Úkol',
-    'plural' => 'Úkoly',
-    'description' => 'Popis',
-    'from' => 'Od',
-    'deadline' => 'Deadline',
-    'new' => 'Vytvořit nový úkol',
-    'task-name' => 'Název úkolu',
-    'save' => 'Uložit',
-    'edit' => 'Upravit',
-    'delete' => 'Smazat',
-    'implementer' => 'Zpracovatel'
+    "client" => ["assigned" => "Úkoly přiděleny tobě", "created" => "Tebou vytvořené úkoly"],
+    "deadline" => "Deadline",
+    "delete" => "Smazat",
+    "description" => "Popis",
+    "edit" => "Upravit",
+    "from" => "Od",
+    "implementer" => "Zpracovatel",
+    "new" => "Vytvořit nový úkol",
+    "plural" => "Úkoly",
+    "save" => "Uložit",
+    "singular" => "Úkol",
+    "task-name" => "Název úkolu"
 ];

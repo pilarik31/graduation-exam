@@ -1,25 +1,13 @@
 <?php
-
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
-
-    'failed' => 'These credentials do not match our records.',
-    'success' => 'Successfully logged in.',
-    'login' => [
-        'login' => 'Login',
-        'btn' => 'Log in',
+    "failed" => "These credentials do not match our records.",
+    "login" => ["btn" => "Log in", "login" => "Login"],
+    "logout" => "Log out",
+    "oauth" => [
+        "failed" => "Login failed. Try using another authentication method.",
+        "not-supported" => ":provider is not supported.",
+        "user-not-exist" => "User does not exist and the system does not support creating profile by the user."
     ],
-    'logout' => 'Log out',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    "success" => "Successfully logged in.",
+    "throttle" => "Too many login attempts. Please try again in :seconds seconds."
 ];

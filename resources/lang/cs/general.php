@@ -1,11 +1,8 @@
 <?php
-
 return [
-    'dashboard' => 'Nástěnka',
-    'password' => [
-        'word' => 'Heslo',
-    ],
-    'save' => 'Uložit',
-    'edit' => 'Upravit',
-    'delete' => 'Smazat',
+    "dashboard" => "Nástěnka",
+    "delete" => "Smazat",
+    "edit" => "Upravit",
+    "password" => ["word" => "Heslo"],
+    "save" => "Uložit"
 ];

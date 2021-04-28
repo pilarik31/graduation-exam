@@ -1,7 +1,6 @@
 <?php
-
 return [
-    'administrator' => 'Administrator',
-    'implementer' => 'Implementer',
-    'contractor' => 'Contractor'
+    "administrator" => "Administrator",
+    "contractor" => "Contractor",
+    "implementer" => "Implementer"
 ];

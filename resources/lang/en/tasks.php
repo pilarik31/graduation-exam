@@ -1,19 +1,15 @@
 <?php
-
 return [
-    'singular' => 'Task',
-    'plural' => 'Tasks',
-    'description' => 'Description',
-    'from' => 'From',
-    'deadline' => 'Deadline',
-    'new' => 'Create new task',
-    'task-name' => 'Task name',
-    'save' => 'Save',
-    'edit' => 'Edit',
-    'delete' => 'Delete',
-    'implementer' => 'Implementer',
-    'client' => [
-        'created' => 'Your created tasks',
-        'assigned' => 'Tasks assigned to you'
-    ]
+    "client" => ["assigned" => "Tasks assigned to you", "created" => "Your created tasks"],
+    "deadline" => "Deadline",
+    "delete" => "Delete",
+    "description" => "Description",
+    "edit" => "Edit",
+    "from" => "From",
+    "implementer" => "Implementer",
+    "new" => "Create new task",
+    "plural" => "Tasks",
+    "save" => "Save",
+    "singular" => "Task",
+    "task-name" => "Task name"
 ];

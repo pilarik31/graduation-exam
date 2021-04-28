@@ -11,7 +11,7 @@ class Localization
     /**
      * Handle an incoming request.
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         if (session()->has('locale')) {
             App::setLocale(session()->get('locale'));

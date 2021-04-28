@@ -1,8 +1,8 @@
 <?php
-
 return [
-    'dashboard' => 'Dashboard',
-    'password' => [
-        'word' => 'Password',
-    ],
+    "dashboard" => "Dashboard",
+    "delete" => "Delete",
+    "edit" => "Edit",
+    "password" => ["word" => "Password"],
+    "save" => "Save"
 ];
