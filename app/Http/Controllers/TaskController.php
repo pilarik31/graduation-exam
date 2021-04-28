@@ -23,7 +23,7 @@ class TaskController extends Controller
     public function index(): View
     {
         return view('tasks.index', [
-            'tasks' => Task::all()->sortBy('completed')
+            'tasks' => Task::all()->sortBy('to')->sortBy('completed')
         ]);
     }
 
@@ -116,11 +116,7 @@ class TaskController extends Controller
     public function complete(Task $task): RedirectResponse
     {
         $this->authorize('complete', $task);
-        if ($task->completed) {
-            $task->update(['completed' => 0]);
-        } else {
-            $task->update(['completed' => 1]);
-        }
+        $task->completed ? $task->update(['completed' => 0]) : $task->update(['completed' => 1]);
         return redirect()->back();
     }
 }
