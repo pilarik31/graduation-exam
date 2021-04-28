@@ -61,7 +61,7 @@ class TaskPolicy
             : Response::deny(trans('response.403'), 403);
     }
 
-    public function complete(Client $client)
+    public function complete(Client $client): Response
     {
         return ($client->isAdmin() || $client->isImplementer())
             ? Response::allow()

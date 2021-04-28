@@ -23,7 +23,7 @@ class TaskController extends Controller
     public function index(): View
     {
         return view('tasks.index', [
-            'tasks' => Task::all()
+            'tasks' => Task::all()->sortBy('completed')
         ]);
     }
 
@@ -113,7 +113,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    public function complete(Task $task)
+    public function complete(Task $task): RedirectResponse
     {
         $this->authorize('complete', $task);
         if ($task->completed) {
