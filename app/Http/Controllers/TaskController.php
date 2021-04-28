@@ -53,8 +53,8 @@ class TaskController extends Controller
             'from' => 'date|nullable',
             'to' => 'date|nullable',
         ], [
-            'title.required' => 'Task name is required!',
-            'tasklist_id' => 'Tasklist is required'
+            'title.required' => __('validation.required', ['attribute' => __('tasks.task-name')]),
+            'tasklist_id' => __('validation.required', ['attribute' => __('tasklists.singular')])
         ]);
         $validatedData += ['client_id' => Auth::id()];
         Task::create($validatedData);
@@ -97,8 +97,8 @@ class TaskController extends Controller
             'from' => 'date|nullable',
             'to' => 'date|nullable',
         ], [
-            'title.required' => 'Task name is required!',
-            'tasklist_id.required' => 'Task ID is required!',
+            'title.required' => __('validation.required', ['attribute' => __('tasks.task-name')]),
+            'tasklist_id' => __('validation.required', ['attribute' => __('tasklists.singular')])
         ]);
         $task->update($validatedData);
         return redirect()->route('tasks.index')->with('success', "Task $task->title edited.");
@@ -113,6 +113,9 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
+    /**
+     * Marks the specified resource as completed.
+     */
     public function complete(Task $task): RedirectResponse
     {
         $this->authorize('complete', $task);

@@ -75,8 +75,11 @@ class ClientController extends Controller
     {
         return view('clients.show', [
             'client' => Client::findOrFail($client->id),
-            'tasks' => Client::findOrFail($client->id)->tasks,
-            'implements' => Task::all()->where('implementer_id', '=', $client->id),
+            'tasks' => Client::findOrFail($client->id)->tasks->sortBy('to')->sortBy('completed'),
+            'implements' => Task::all()
+                ->where('implementer_id', '=', $client->id)
+                ->sortBy('to')
+                ->sortBy('completed'),
         ]);
     }
 
