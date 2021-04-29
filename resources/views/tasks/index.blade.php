@@ -10,7 +10,7 @@
     <table class="table">
         <thead>
             <th>@lang('tasks.singular')</th>
-            <th>@lang('tasks.implementer')</th>
+            {{-- <th>@lang('tasks.implementer')</th> --}}
             <th>@lang('tasks.description')</th>
             <th>@lang('tasks.from')</th>
             <th>@lang('tasks.deadline')</th>
@@ -31,7 +31,7 @@
                         @endcan
                         <a href="{{ route('tasks.show', $task->id) }}">{{ $task->title }}</a>
                     </td>
-                    <td></td>
+                    {{-- <td></td> --}}
                     <td class="w-50">{{ $task->description }}</td>
                     <td>
                     @isset($task->from)

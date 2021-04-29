@@ -9,11 +9,11 @@ return [
     "firstname" => "Firstname",
     "lastname" => "Lastname",
     "name" => "Name",
-    "new" => "Create new client",
+    "new" => "Create new user",
     "password" => "Password",
     "phone" => "Phone",
-    "plural" => "Clients",
+    "plural" => "Users",
     "profile" => "Profile",
     "role" => ["select" => "Choose role", "singular" => "Role"],
-    "singular" => "Client"
+    "singular" => "User"
 ];

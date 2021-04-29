@@ -9,11 +9,11 @@ return [
     "firstname" => "Jméno",
     "lastname" => "Příjmení",
     "name" => "Jméno",
-    "new" => "Vytvořit nového klienta",
+    "new" => "Vytvořit nového uživatele",
     "password" => "Heslo",
     "phone" => "Telefon",
-    "plural" => "Klienti",
+    "plural" => "Uživatelé",
     "profile" => "Profil",
     "role" => ["select" => "Vybrat roli", "singular" => "Role"],
-    "singular" => "Klient"
+    "singular" => "Uživatel"
 ];
