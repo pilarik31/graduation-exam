@@ -32,7 +32,7 @@ class LoginController extends Controller
             'password' => 'required',
         ],[
             'email.required' => __('validation.email.empty'),
-            'password.required' => __('validation.password.empty'),
+            'password.required' => __('validation.password'),
         ]);
 
         if (Auth::attempt($credentials)) {

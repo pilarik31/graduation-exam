@@ -54,12 +54,12 @@ class ClientController extends Controller
             'city' => '',
             'role_id' => 'required',
         ], [
-            'firstname.required' => 'Firstname is required!',
-            'lastname.requried' => 'Lastname is required!',
-            'email.required' => __('validation.email.empty'),
-            'password.required' => __('validation.password.empty'),
-            'phone.required' => __('validation.phone.empty'),
-            'birthday.required' => __('validation.birthday.empty'),
+            'firstname.required' => __('validation.required', ['attribute' => __('clients.firstname')]),
+            'lastname.required' => __('validation.required', ['attribute' => __('clients.lastname')]),
+            'email.required' => __('validation.required', ['attribute' => __('clients.email')]),
+            'password.required' => __('validation.required', ['attribute' => __('clients.password')]),
+            'phone.required' => __('validation.required', ['attribute' => __('clients.phone')]),
+            'birthday.required' => __('validation.required', ['attribute' => __('clients.birthday')]),
             'role_id.required' => 'Role is required!'
         ]);
         $validatedData['password'] = Hash::make($request->password);
@@ -110,11 +110,11 @@ class ClientController extends Controller
             'city' => '',
             'role_id' => 'required',
         ], [
-            'firstname.required' => 'Firstname is required!',
-            'lastname.requried' => 'Lastname is required!',
-            'email.required' => __('validation.email'),
-            'phone.required' => __('validation.phone.empty'),
-            'birthday.required' => __('validation.birthday.empty'),
+            'firstname.required' => __('validation.required', ['attribute' => __('clients.firstname')]),
+            'lastname.requried' => __('validation.required', ['attribute' => __('clients.lastname')]),
+            'email.required' => __('validation.required', ['attribute' => __('clients.email')]),
+            'phone.required' => __('validation.required', ['attribute' => __('clients.phone')]),
+            'birthday.required' => __('validation.required', ['attribute' => __('clients.birthday')]),
             'role_id' => 'required',
         ]);
         $validatedData = array_filter($validatedData);

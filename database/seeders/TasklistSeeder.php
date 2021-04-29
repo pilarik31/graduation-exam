@@ -9,10 +9,8 @@ class TasklistSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         Tasklist::factory(10)->create();
     }

@@ -16,6 +16,7 @@ return [
         "numeric" => "The :attribute must be between :min and :max.",
         "string" => "The :attribute must be between :min and :max characters."
     ],
+    "birthday" => ["empty" => "Birthdate is required."],
     "boolean" => "The :attribute field must be true or false.",
     "confirmed" => "The :attribute confirmation does not match.",
     "date" => "The :attribute is not a valid date.",
@@ -80,7 +81,6 @@ return [
     "not_in" => "The selected :attribute is invalid.",
     "not_regex" => "The :attribute format is invalid.",
     "numeric" => "The :attribute must be a number.",
-    "password" => "The password is incorrect.",
     "present" => "The :attribute field must be present.",
     "regex" => "The :attribute format is invalid.",
     "required" => "The \":attribute\" field is required.",
