@@ -25,5 +25,10 @@ doc: ## Generates documentation using phpdoc.
 up: ## Start Docker containers.
 	docker-compose up -d --build
 
+key: # Generates app key.
+	docker exec -it pms_php_1 php artisan key:generate
+
 migrate: ## Migrate and seed DB.
 	docker exec -it pms_php_1 php artisan migrate:fresh --seed
+
+install: up key migrate
