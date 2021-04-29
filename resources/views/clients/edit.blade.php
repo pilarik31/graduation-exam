@@ -7,7 +7,6 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
-
                 <form action="{{ route('clients.update', [$client->id]) }}" method="POST">
                     @method('PATCH')
                     <div class="form-group">
@@ -15,37 +14,49 @@
                         <label for="firstname">@lang('clients.firstname')</label>
                         <input type="text" name="firstname" id="firstname" class="form-control" value="{{ $client->firstname }}">
                         @error('firstname')
-                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
                         @enderror
 
                         <label for="lastname">@lang('clients.lastname')</label>
                         <input type="text" name="lastname" id="lastname" class="form-control" value="{{ $client->lastname }}">
                         @error('lastname')
-                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
                         @enderror
 
                         <label for="email">@lang('clients.email')</label>
                         <input type="email" name="email" id="email" class="form-control" value="{{ $client->email }}">
                         @error('email')
-                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
                         @enderror
 
                         <label for="password">@lang('clients.password')</label>
                         <input type="password" name="password" id="password" class="form-control">
                         @error('password')
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
+                        @enderror
+
+                        <label for="phone">@lang('clients.phone')</label>
+                        <input type="phone" name="phone" id="phone" class="form-control" value="{{ $client->phone }}">
+                        @error('phone')
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
+                        @enderror
+
+                        <label for="birthday">@lang('clients.birthday')</label>
+                        <input type="date" name="birthday" id="birthday" class="form-control">
+                        @error('birthday')
                             <div class="alert alert-danger text-danger">{{ $message  }}</div>
                         @enderror
 
                         <label for="address">@lang('clients.address')</label>
                         <input type="text" name="address" id="address" class="form-control" value="{{ $client->address }}">
                         @error('address')
-                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
                         @enderror
 
                         <label for="city">@lang('clients.city')</label>
                         <input type="text" name="city" id="city" class="form-control" value="{{ $client->city }}">
                         @error('city')
-                            <div class="alert alert-danger text-danger">{{ $message  }}</div>
+                            <div class="alert alert-danger text-danger">{{ $message }}</div>
                         @enderror
 
                         <label for="role_id">@lang('clients.role.select')</label>

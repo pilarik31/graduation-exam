@@ -38,9 +38,9 @@ class Task extends Model
         return $this->hasOne(Client::class, 'id');
     }
 
-    public function tasklist(): HasOne
+    public function tasklist(): BelongsTo
     {
-        return $this->hasOne(Tasklist::class);
+        return $this->belongsTo(Tasklist::class);
     }
 
     /**

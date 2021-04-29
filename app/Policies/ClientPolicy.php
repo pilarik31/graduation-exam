@@ -63,16 +63,20 @@ class ClientPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(Client $client): void
+    public function restore(Client $client): Response
     {
-        //
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(Client $client): void
+    public function forceDelete(Client $client): Response
     {
-        //
+        return ($client->isAdmin())
+            ? Response::allow()
+            : Response::deny(trans('response.403'), 403);
     }
 }

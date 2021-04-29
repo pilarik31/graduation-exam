@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Comment;
 use App\Models\Task;
 use App\Models\Tasklist;
 use Illuminate\Http\RedirectResponse;
@@ -110,6 +111,9 @@ class TaskController extends Controller
     public function destroy(Task $task): RedirectResponse
     {
         Task::destroy($task->id);
+        foreach ($task->comments as $comment) {
+           Comment::destroy($comment->id);
+        }
         return redirect()->route('tasks.index');
     }
 

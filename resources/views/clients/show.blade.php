@@ -28,7 +28,7 @@
                     <div class="row">
 
                         <div class="col-lg-6 col-md-6 col-6">
-                            @can('edit', $client)
+                            @can('update', $client)
                                 <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-info">
                                     @lang('clients.edit')
                                 </a>

@@ -3,7 +3,7 @@
 @section('title', __('tasks.plural'))
 
 @section('content')
-    <h1>@lang('tasks.plural')</h1>
+    <h1>@lang('tasks.plural') - {{ $tasklist->name }}</h1>
 
     @include('partials.success')
 

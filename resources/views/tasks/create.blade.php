@@ -38,11 +38,16 @@
                             @endforeach
                         </select>
 
-                        <label for="from">@lang('tasks.from')</label>
-                        <input type="date" name="from" id="from" class="form-control">
-
-                        <label for="to">@lang('tasks.deadline')</label>
-                        <input type="date" name="to" id="to" class="form-control">
+                        <div class="row">
+                            <div class="col">
+                                <label for="from">@lang('tasks.from')</label>
+                                <input type="date" name="from" id="from" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="to">@lang('tasks.deadline')</label>
+                                <input type="date" name="to" id="to" class="form-control">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

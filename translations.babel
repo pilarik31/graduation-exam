@@ -503,6 +503,46 @@
                 <filename/>
             </file_node>
             <file_node>
+                <name>comment</name>
+                <children>
+                    <concept_node>
+                        <name>comments</name>
+                        <definition_loaded>false</definition_loaded>
+                        <description/>
+                        <comment/>
+                        <default_text/>
+                        <translations>
+                            <translation>
+                                <language>cs-CZ</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>en-US</language>
+                                <approved>false</approved>
+                            </translation>
+                        </translations>
+                    </concept_node>
+                    <concept_node>
+                        <name>send-comment</name>
+                        <definition_loaded>false</definition_loaded>
+                        <description/>
+                        <comment/>
+                        <default_text/>
+                        <translations>
+                            <translation>
+                                <language>cs-CZ</language>
+                                <approved>false</approved>
+                            </translation>
+                            <translation>
+                                <language>en-US</language>
+                                <approved>false</approved>
+                            </translation>
+                        </translations>
+                    </concept_node>
+                </children>
+                <filename/>
+            </file_node>
+            <file_node>
                 <name>dashboard</name>
                 <children>
                     <folder_node>
