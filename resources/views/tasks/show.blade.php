@@ -8,7 +8,7 @@
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
                 <div class="shadow p-3 bg-white rounded">
-                    <h2>{{ $task->title }} - {{ $task->tasklist->name }}
+                    <h2>{{ $task->title }} - {{ $task->tasklist->name ?? __('tasklists.not-found') }}
                         @can('complete', $task)
                         <form class="complete-form" action="{{ route('tasks.complete', $task) }}" method="POST">
                             @csrf
