@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Tasklist;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
@@ -14,7 +14,7 @@ class TasklistPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(Client $client): Response
+    public function viewAny(User $user): Response
     {
         return Response::allow();
     }
@@ -22,7 +22,7 @@ class TasklistPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(Client $client, Tasklist $tasklist): Response
+    public function view(User $user, Tasklist $tasklist): Response
     {
         return Response::allow();
     }
@@ -30,9 +30,9 @@ class TasklistPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(Client $client): Response
+    public function create(User $user): Response
     {
-        return ($client->isAdmin() || $client->isImplementer())
+        return ($user->isAdmin() || $user->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -40,9 +40,9 @@ class TasklistPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(Client $client, Tasklist $tasklist): Response
+    public function update(User $user, Tasklist $tasklist): Response
     {
-        return ($client->isAdmin() || $client->isImplementer())
+        return ($user->isAdmin() || $user->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -50,9 +50,9 @@ class TasklistPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(Client $client, Tasklist $tasklist): Response
+    public function delete(User $user, Tasklist $tasklist): Response
     {
-        return ($client->isAdmin() || $client->isImplementer())
+        return ($user->isAdmin() || $user->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -60,7 +60,7 @@ class TasklistPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(Client $client, Tasklist $tasklist): void
+    public function restore(User $user, Tasklist $tasklist): void
     {
         //
     }
@@ -68,7 +68,7 @@ class TasklistPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(Client $client, Tasklist $tasklist): void
+    public function forceDelete(User $user, Tasklist $tasklist): void
     {
         //
     }

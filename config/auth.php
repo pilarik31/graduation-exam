@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'client',
-        'passwords' => 'client',
+        'guard' => 'user',
+        'passwords' => 'user',
     ],
 
     /*
@@ -41,9 +41,9 @@ return [
             'provider' => 'users',
         ],
 
-        'client' => [
+        'user' => [
             'driver' => 'session',
-            'provider' => 'client'
+            'provider' => 'user'
         ],
 
         'api' => [
@@ -71,9 +71,9 @@ return [
     */
 
     'providers' => [
-        'client' => [
+        'user' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Client::class,
+            'model' => App\Models\User::class,
         ],
 
         'admin' => [

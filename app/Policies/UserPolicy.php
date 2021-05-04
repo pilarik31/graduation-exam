@@ -2,20 +2,20 @@
 
 namespace App\Policies;
 
-use App\Models\Client;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class ClientPolicy
+class UserPolicy
 {
     use HandlesAuthorization;
 
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(Client $client): Response
+    public function viewAny(User $user): Response
     {
-        return ($client->isAdmin())
+        return ($user->isAdmin())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -23,9 +23,9 @@ class ClientPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(Client $client): Response
+    public function view(User $user): Response
     {
-        return ($client->isAdmin() || $client->isCurrentUser())
+        return ($user->isAdmin() || $user->isCurrentUser())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -33,9 +33,9 @@ class ClientPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(Client $client): Response
+    public function create(User $user): Response
     {
-        return ($client->isAdmin())
+        return ($user->isAdmin())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -43,9 +43,9 @@ class ClientPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(Client $client): Response
+    public function update(User $user): Response
     {
-        return ($client->isAdmin())
+        return ($user->isAdmin())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -53,9 +53,9 @@ class ClientPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(Client $client): Response
+    public function delete(User $user): Response
     {
-        return ($client->isAdmin())
+        return ($user->isAdmin())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -63,9 +63,9 @@ class ClientPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(Client $client): Response
+    public function restore(User $user): Response
     {
-        return ($client->isAdmin())
+        return ($user->isAdmin())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -73,9 +73,9 @@ class ClientPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(Client $client): Response
+    public function forceDelete(User $user): Response
     {
-        return ($client->isAdmin())
+        return ($user->isAdmin())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Comment;
 use App\Models\Task;
 use App\Models\Tasklist;
@@ -35,7 +35,7 @@ class TaskController extends Controller
     {
         $request->session()->reflash();
         return view('tasks.create', [
-            'clients' => Client::all(),
+            'users' => User::all(),
             'tasklists' => Tasklist::all(),
             'tasklistPreselect' => $request->session()->get('tasklist'),
         ]);
@@ -57,7 +57,7 @@ class TaskController extends Controller
             'title.required' => __('validation.required', ['attribute' => __('tasks.task-name')]),
             'tasklist_id' => __('validation.required', ['attribute' => __('tasklists.singular')])
         ]);
-        $validatedData += ['client_id' => Auth::id()];
+        $validatedData += ['user_id' => Auth::id()];
         Task::create($validatedData);
         return redirect()->route('tasks.index')->with('success', "Task  $request->title created.");
     }
@@ -69,7 +69,7 @@ class TaskController extends Controller
     {
         return view('tasks.show', [
             'task' => Task::findOrFail($task->id),
-            'implementer' => Client::findOrFail($task->implementer_id),
+            'implementer' => User::findOrFail($task->implementer_id),
         ]);
     }
 
@@ -80,7 +80,7 @@ class TaskController extends Controller
     {
         return view('tasks.edit', [
             'task' => Task::findOrFail($task->id),
-            'clients' => Client::all(),
+            'users' => User::all(),
             'tasklists' => Tasklist::all(),
         ]);
     }

@@ -19,7 +19,7 @@ use Illuminate\Foundation\Auth\User as Authenticable;
  * @property string|null $address
  * @property string|null $city
  */
-class Client extends Authenticable
+class User extends Authenticable
 {
     use HasFactory;
 

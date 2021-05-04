@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
@@ -22,12 +22,12 @@ class TaskPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(Client $client, Task $task): Response
+    public function view(User $user, Task $task): Response
     {
-        if ($client->isAdmin() || $client->isImplementer()) {
+        if ($user->isAdmin() || $user->isImplementer()) {
             return Response::allow();
         }
-        if ($client->id === $task->client->id) {
+        if ($user->id === $task->user->id) {
             return Response::allow();
         }
         return Response::deny(trans('response.403'), 403);
@@ -44,9 +44,9 @@ class TaskPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(Client $client): Response
+    public function update(User $user): Response
     {
-        return ($client->isAdmin() || $client->isImplementer())
+        return ($user->isAdmin() || $user->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
@@ -54,16 +54,16 @@ class TaskPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(Client $client): Response
+    public function delete(User $user): Response
     {
-        return ($client->isAdmin() || $client->isImplementer())
+        return ($user->isAdmin() || $user->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
     }
 
-    public function complete(Client $client): Response
+    public function complete(User $user): Response
     {
-        return ($client->isAdmin() || $client->isImplementer())
+        return ($user->isAdmin() || $user->isImplementer())
             ? Response::allow()
             : Response::deny(trans('response.403'), 403);
         //return Response::allow();
@@ -72,7 +72,7 @@ class TaskPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(Client $client, Task $task): void
+    public function restore(User $user, Task $task): void
     {
         //
     }
@@ -80,7 +80,7 @@ class TaskPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(Client $client, Task $task): void
+    public function forceDelete(User $user, Task $task): void
     {
         //
     }

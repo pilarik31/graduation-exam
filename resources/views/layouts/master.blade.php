@@ -33,17 +33,17 @@
                             @lang('tasklists.plural')
                         </a>
                         @can('view-any', auth()->user())
-                            <a class="nav-link {{ activeMenu('clients') }}" href="{{ route('clients.index') }}">
+                            <a class="nav-link {{ activeMenu('users') }}" href="{{ route('users.index') }}">
                                 <i class="bi bi-people-fill"></i>
-                                @lang('clients.plural')
+                                @lang('users.plural')
                             </a>
                         @endcan
 
                         @include('lang.lang')
 
-                        <a class="nav-link {{ activeMenu('clients/' . auth()->user()->id) }}" href="{{ route('clients.show', auth()->user()->id) }}">
+                        <a class="nav-link {{ activeMenu('users/' . auth()->user()->id) }}" href="{{ route('users.show', auth()->user()->id) }}">
                             <i class="bi bi-person-circle"></i>
-                            @lang('clients.profile')
+                            @lang('users.profile')
                         </a>
 
                         <a class="nav-link" href="{{ route('logout') }}">

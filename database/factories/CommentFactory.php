@@ -20,7 +20,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'client_id' => $this->faker->randomElement([1, 2, 3, 4, 5,]),
+            'user_id' => $this->faker->randomElement([1, 2, 3, 4, 5,]),
             'content' => $this->faker->paragraph(1),
             'task_id' => $this->faker->randomElement([1, 2, 3, 4, 5,]),
         ];

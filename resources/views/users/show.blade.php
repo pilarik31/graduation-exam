@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', "$client->firstname - Client detail")
+@section('title', "$user->firstname - User detail")
 
 @section('content')
 
@@ -8,39 +8,39 @@
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
                 <div class="shadow p-3 bg-white rounded">
-                    <h2>{{ $client->firstname }} {{ $client->lastname  }}</h2>
+                    <h2>{{ $user->firstname }} {{ $user->lastname  }}</h2>
                     <p>
-                        <a href="mailto:{{ $client->email }}">{{ $client->email }}</a>
+                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                     </p>
                     <ul>
                         <li>
-                            @lang('clients.phone'):
-                            <a href="tel:{{ $client->phone }}">
-                                {{ $client->phone }}
+                            @lang('users.phone'):
+                            <a href="tel:{{ $user->phone }}">
+                                {{ $user->phone }}
                             </a>
                         </li>
-                        <li>@lang('clients.birthday'): {{ date('d. m. Y', strtotime($client->birthday)) }}</li>
-                        <li>@lang('clients.address'): {{ $client->address }}</li>
-                        <li>@lang('clients.city'): {{ $client->city }}</li>
-                        <li>@lang('clients.role.singular'): {{ __('roles.' . $client->role->name) }}</li>
+                        <li>@lang('users.birthday'): {{ date('d. m. Y', strtotime($user->birthday)) }}</li>
+                        <li>@lang('users.address'): {{ $user->address }}</li>
+                        <li>@lang('users.city'): {{ $user->city }}</li>
+                        <li>@lang('users.role.singular'): {{ __('roles.' . $user->role->name) }}</li>
                     </ul>
 
                     <div class="row">
 
                         <div class="col-lg-6 col-md-6 col-6">
-                            @can('update', $client)
-                                <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-info">
-                                    @lang('clients.edit')
+                            @can('update', $user)
+                                <a href="{{ route('users.edit', [$user->id]) }}" class="btn btn-info">
+                                    @lang('users.edit')
                                 </a>
                             @endcan
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-6 text-right">
-                            @can('delete', $client)
-                                <form action="{{ route('clients.destroy', [$client->id]) }}" method="POST">
+                            @can('delete', $user)
+                                <form action="{{ route('users.destroy', [$user->id]) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <input type="submit" value="@lang('clients.delete')" class="btn btn-danger">
+                                    <input type="submit" value="@lang('users.delete')" class="btn btn-danger">
                                 </form>
                             @endcan
                         </div>
@@ -53,7 +53,7 @@
 
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
-                <h3>@lang('tasks.client.created')</h3>
+                <h3>@lang('tasks.user.created')</h3>
                 <table class="table">
                     <thead>
                         <th>@lang('tasks.singular')</th>
@@ -97,7 +97,7 @@
 
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
-                <h3>@lang('tasks.client.assigned')</h3>
+                <h3>@lang('tasks.user.assigned')</h3>
                 <table class="table">
                     <thead>
                         <th>@lang('tasks.singular')</th>

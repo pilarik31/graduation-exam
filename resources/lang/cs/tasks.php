@@ -1,6 +1,6 @@
 <?php
 return [
-    "client" => ["assigned" => "Úkoly přiděleny tobě", "created" => "Tebou vytvořené úkoly"],
+    "user" => ["assigned" => "Úkoly přiděleny tobě", "created" => "Tebou vytvořené úkoly"],
     "deadline" => "Deadline",
     "delete" => "Smazat",
     "description" => "Popis",

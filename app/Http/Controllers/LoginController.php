@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Laravel\Socialite\Contracts\User;
+use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -45,9 +45,9 @@ class LoginController extends Controller
     /**
      * Handle an authentication attepmt from OAuth2.
      */
-    protected function loginOAuth(User $providerUser, string $driver): RedirectResponse
+    protected function loginOAuth(SocialiteUser $providerUser, string $driver): RedirectResponse
     {
-        $user = Client::where('email', $providerUser->getEmail())->first();
+        $user = User::where('email', $providerUser->getEmail())->first();
 
         if ($user) {
             $user->update([

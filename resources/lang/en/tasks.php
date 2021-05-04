@@ -1,6 +1,6 @@
 <?php
 return [
-    "client" => ["assigned" => "Tasks assigned to you", "created" => "Your created tasks"],
+    "user" => ["assigned" => "Tasks assigned to you", "created" => "Your created tasks"],
     "deadline" => "Deadline",
     "delete" => "Delete",
     "description" => "Description",

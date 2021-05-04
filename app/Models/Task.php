@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $title
  * @property string $description
  * @property bool $completed
- * @property Client $client
- * @property Client $implementer_id
+ * @property User $user
+ * @property User $implementer_id
  * @property DateTime $from
  * @property DateTime $to
  */
@@ -23,9 +23,9 @@ class Task extends Model
 {
     use HasFactory;
 
-    public function client(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(User::class);
     }
 
     public function comments(): HasMany
@@ -35,7 +35,7 @@ class Task extends Model
 
     public function implementer(): HasOne
     {
-        return $this->hasOne(Client::class, 'id');
+        return $this->hasOne(User::class, 'id');
     }
 
     public function tasklist(): BelongsTo
@@ -54,7 +54,7 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'from', 'to', 'client_id', 'implementer_id', 'tasklist_id', 'completed'
+        'title', 'description', 'from', 'to', 'user_id', 'implementer_id', 'tasklist_id', 'completed'
     ];
 
     /**

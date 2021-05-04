@@ -20,14 +20,14 @@
                         @endcan
                     </h2>
                     <h4>
-                        @lang('clients.singular'):
-                        <a href="{{ route("clients.show", [$task->client->id]) }}">
-                            {{ $task->client->firstname }} {{ $task->client->lastname }}
+                        @lang('users.singular'):
+                        <a href="{{ route("users.show", [$task->user->id]) }}">
+                            {{ $task->user->firstname }} {{ $task->user->lastname }}
                         </a>
                     </h4>
                     <h4>
                         @lang('tasks.implementer'):
-                        <a href="{{ route('clients.show', $implementer->id) }}">
+                        <a href="{{ route('users.show', $implementer->id) }}">
                             {{ $implementer->firstname . ' ' . $implementer->lastname }}
                         </a>
                     </h4>

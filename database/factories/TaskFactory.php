@@ -25,7 +25,7 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->firstNameFemale,
             'description' => $this->faker->paragraph,
-            'client_id' => 2,
+            'user_id' => 2,
             'implementer_id' => 1,
             'tasklist_id' => $this->faker->randomElement([1, 2,]),
             'from' => $this->faker->dateTime,

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ClientController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocalizationController;
@@ -35,7 +35,7 @@ Route::get('lang/{locale}', [LocalizationController::class, 'lang'])->name('lang
 
 // Application logic.
 Route::resource('/', DashboardController::class)->middleware('auth');
-Route::resource('clients', ClientController::class)->middleware('auth');
+Route::resource('users', UserController::class)->middleware('auth');
 Route::resource('tasks', TaskController::class)->middleware('auth');
 Route::resource('comments', CommentController::class)->middleware('auth');
 Route::resource('tasklists', TasklistController::class)->middleware('auth');

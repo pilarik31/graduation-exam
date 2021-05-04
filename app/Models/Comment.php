@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
- * @property Client $client
+ * @property User $user
  * @property string $content
  * @property Task $task
  */
@@ -16,9 +16,9 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function client(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(User::class);
     }
 
     public function task(): BelongsTo
@@ -27,6 +27,6 @@ class Comment extends Model
     }
 
     protected $fillable = [
-        'content', 'client_id', 'task_id'
+        'content', 'user_id', 'task_id'
     ];
 }

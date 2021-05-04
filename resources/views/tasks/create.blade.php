@@ -23,7 +23,7 @@
 
                         <label for="implementer_id">@lang('tasks.implementer')</label>
                         <select name="implementer_id" id="implementer_id" class="form-control">
-                            @foreach ($clients->where('role_id', 2) as $implementer)
+                            @foreach ($users->where('role_id', 2) as $implementer)
                                 <option value="{{ $implementer->id }}">{{ $implementer->firstname . ' ' . $implementer->lastname }}</option>
                             @endforeach
                         </select>
