@@ -63,7 +63,10 @@
             </div>
         </div>
 
-        @include('tasks.partials.time')
+        @include(
+            'tasks.partials.time',
+            ['task' => $task]
+        )
 
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">

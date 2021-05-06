@@ -8,19 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TasklistController;
 use App\Http\Controllers\TimerController;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Authentication logic.
 Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -49,6 +37,9 @@ Route::patch('tasks/{task}/complete', [TaskController::class, 'complete'])
     ->middleware('auth');
 Route::get('tasks/{task}/complete', fn() => abort(405));
 
+/**
+ * @todo Timers.
+ */
 Route::post('/tasks/{id}/timers', [TimerController::class, 'store']);
 Route::post('/tasks/{id}/timers/stop', [TimerController::class, 'stopRunning']);
 Route::get('/tasks/timers/active', [TimerController::class, 'running']);

@@ -10,23 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class Timer extends Model
 {
-    use HasFactory;
-
-    /**
-     * {@inheritDoc}
-     */
     protected $fillable = [
         'name', 'user_id', 'project_id', 'stopped_at', 'started_at'
     ];
 
-    /**
-    * {@inheritDoc}
-    */
     protected $dates = ['started_at', 'stopped_at'];
 
-    /**
-     * {@inheritDoc}
-     */
     protected $with = ['user'];
 
     /**
