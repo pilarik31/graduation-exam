@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\User as Authenticable;
 /**
  * @property int $id
  * @property Role $role
+ * @property Task $tasks
+ * @property Comment $comments
  * @property string $firstname
  * @property string $lastname
  * @property string $email

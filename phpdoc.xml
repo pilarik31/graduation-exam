@@ -13,7 +13,7 @@
         <api>
             <source dsn=".">
                 <path>app/Http/Controllers</path>
-                <path>app/Http/Models</path>
+                <path>app/Models</path>
                 <path>app/Http/Policies</path>
                 <path>database</path>
             </source>

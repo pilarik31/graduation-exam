@@ -15,7 +15,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $description
  * @property bool $completed
  * @property User $user
- * @property User $implementer_id
+ * @property User $implementer
+ * @property Tasklist $tasklist
+ * @property Comment $comments
  * @property DateTime $from
  * @property DateTime $to
  */
