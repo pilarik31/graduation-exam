@@ -110,10 +110,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task): RedirectResponse
     {
-        Task::destroy($task->id);
-        foreach ($task->comments as $comment) {
-           Comment::destroy($comment->id);
-        }
+        $task->delete();
+        $task->comments()->delete();
         return redirect()->route('tasks.index');
     }
 

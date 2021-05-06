@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TimerController extends Controller
 {
-    public function store(Request $request, int $id)
+    public function store(Request $request, int $id): ?Timer
     {
         $data = $request->validate([
             'name' => 'required|between:3,100'
@@ -19,19 +19,19 @@ class TimerController extends Controller
         $timer =Task::mine()->findOrFail($id)
             ->timers()->save(new Timer([
                 'name' => $data['name'],
-                'user_id' => Auth::user()->id,
+                'user_id' => Auth::id(),
                 'started_at' => new Carbon(),
             ]));
 
-        return $timer->with('project')->find($timer->id);
+        return $timer->with('task')->find($timer->id);
     }
 
-    public function running()
+    public function running(): Timer|array
     {
         return Timer::with('tasks')->mine()->running()->first() ?? [];
     }
 
-    public function stopRunning()
+    public function stopRunning(): Timer
     {
         if ($timer = Timer::mine()->running()->first()) {
             $timer->update(['stopped_at' => new Carbon]);

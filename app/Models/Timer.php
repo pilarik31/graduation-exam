@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Auth;
 
 class Timer extends Model
 {
@@ -28,37 +31,29 @@ class Timer extends Model
 
     /**
      * Get the related user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function task()
+    public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
     }
 
     /**
      * Get timer for current user.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeMine($query)
+    public function scopeMine(Builder $query): Builder
     {
-        return $query->whereUserId(auth()->user()->id);
+        return $query->whereUserId(Auth::id());
     }
 
     /**
      * Get the running timers
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeRunning($query)
+    public function scopeRunning(Builder $query): Builder
     {
         return $query->whereNull('stopped_at');
     }

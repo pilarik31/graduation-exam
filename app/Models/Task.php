@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use DateTime;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @property int $id
@@ -20,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property Comment $comments
  * @property DateTime $from
  * @property DateTime $to
+ * @method static Builder mine()
  */
 class Task extends Model
 {
@@ -45,20 +48,17 @@ class Task extends Model
         return $this->belongsTo(Tasklist::class);
     }
 
-    public function timers()
+    public function timers(): HasMany
     {
         return $this->hasMany(Timer::class);
     }
 
     /**
-     * Get my tasks
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * Get current user Tasks.
      */
-    public function scopeMine($query)
+    public function scopeMine(Builder $query): Builder
     {
-        return $query->whereUserId(auth()->user()->id);
+        return $query->whereUserId(Auth::id());
     }
 
     /**

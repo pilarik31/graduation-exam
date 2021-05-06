@@ -2,8 +2,10 @@ require('./bootstrap');
 import "popper.js";
 import "bootstrap";
 
-window.Vue = require('vue');
+import Vue from 'vue';
 
 
-Vue.component('timer', require('./components/Timer.vue'))
-const app = new Vue({el: '#timer'});
+Vue.component('timer', () => import("./components/Timer"));
+const app = new Vue({
+        el: '#app',
+});
