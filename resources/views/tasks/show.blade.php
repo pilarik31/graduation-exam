@@ -66,6 +66,14 @@
         <div class="row mt-5">
             <div class="col-lg-12 col-md-12">
                 <div class="shadow p-3 bg-white rounded">
+                    <timer></timer>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-12 col-md-12">
+                <div class="shadow p-3 bg-white rounded">
                     @include(
                         'comments.index',
                         ['comments' => $task->comments]

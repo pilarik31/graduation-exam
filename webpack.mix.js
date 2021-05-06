@@ -12,8 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix
-.js('resources/js/app.js', 'public/js/')
-.extract(['lodash', 'axios', 'jquery', 'bootstrap', 'popper.js'])
+.js('resources/js/app.js', 'public/js/').vue()
+.extract(['lodash', 'axios', 'jquery', 'bootstrap', 'popper.js', 'vue'])
 .sourceMaps()
 .sass('resources/scss/app.scss', 'public/css/')
 .sass('resources/scss/login.scss', 'public/css/')

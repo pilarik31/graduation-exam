@@ -7,6 +7,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TasklistController;
+use App\Http\Controllers\TimerController;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,7 @@ Route::patch('tasks/{task}/complete', [TaskController::class, 'complete'])
     ->name('tasks.complete')
     ->middleware('auth');
 Route::get('tasks/{task}/complete', fn() => abort(405));
+
+Route::post('/tasks/{id}/timers', [TimerController::class, 'store']);
+Route::post('/tasks/{id}/timers/stop', [TimerController::class, 'stopRunning']);
+Route::get('/tasks/timers/active', [TimerController::class, 'running']);

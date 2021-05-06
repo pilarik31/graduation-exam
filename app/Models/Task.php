@@ -45,6 +45,22 @@ class Task extends Model
         return $this->belongsTo(Tasklist::class);
     }
 
+    public function timers()
+    {
+        return $this->hasMany(Timer::class);
+    }
+
+    /**
+     * Get my tasks
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeMine($query)
+    {
+        return $query->whereUserId(auth()->user()->id);
+    }
+
     /**
      * @var array
      */

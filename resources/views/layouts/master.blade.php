@@ -8,7 +8,7 @@
         <title>@yield('title')</title>
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased" id="app">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 col-md-2 sidebar">
