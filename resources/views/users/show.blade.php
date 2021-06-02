@@ -106,7 +106,7 @@
                         <th>@lang('tasks.deadline')</th>
                     </thead>
                     <tbody>
-                        @foreach ($implements as $task)
+                        @foreach ($implements->where('implementer_id', '=', $user->id) as $task)
                         <tr>
                             <td>
                                 @can('complete', $task)

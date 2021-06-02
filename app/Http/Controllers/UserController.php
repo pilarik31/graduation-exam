@@ -77,9 +77,8 @@ class UserController extends Controller
             'user' => User::findOrFail($user->id),
             'tasks' => User::findOrFail($user->id)->tasks->sortBy('to')->sortBy('completed'),
             'implements' => Task::all()
-                ->where('implementer_id', '=', $user->id)
                 ->sortBy('to')
-                ->sortBy('completed'),
+                ->sortBy('completed')
         ]);
     }
 

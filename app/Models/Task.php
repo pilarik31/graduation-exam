@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
  * @property Comment $comments
  * @property DateTime $from
  * @property DateTime $to
+ * @method sortBy($col)
  * @method static Builder mine()
  */
 class Task extends Model
