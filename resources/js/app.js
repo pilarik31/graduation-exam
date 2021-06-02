@@ -2,10 +2,15 @@ require('./bootstrap');
 import "popper.js";
 import "bootstrap";
 
-import Vue from 'vue';
+import { createApp } from "vue";
+import Timer from "./components/Timer.vue"
 
-
-Vue.component('timer', () => import("./components/Timer"));
-const app = new Vue({
-        el: '#app',
+const app = createApp({
+    components: {
+        Timer
+    }
 });
+
+app.mount("#app")
+
+

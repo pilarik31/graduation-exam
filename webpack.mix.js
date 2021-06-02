@@ -12,14 +12,16 @@ let mix = require('laravel-mix');
  */
 
 mix
-.js('resources/js/app.js', 'public/js/').vue()
-.extract(['lodash', 'axios', 'jquery', 'bootstrap', 'popper.js', 'vue'])
+.js('resources/js/app.js', 'public/js/')
+.vue()
+.extract()
 .sourceMaps()
 .sass('resources/scss/app.scss', 'public/css/')
 .sass('resources/scss/login.scss', 'public/css/')
 .sass('resources/scss/error.scss', 'public/css')
 .css('node_modules/normalize.css/normalize.css', 'public/css')
-.browserSync('myapp.loc');
+.browserSync('myapp.loc')
+.disableNotifications();
 
 if (mix.inProduction()) {
     mix.version();
