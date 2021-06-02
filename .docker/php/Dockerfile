@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8-fpm
 
 RUN apt-get update
 RUN apt-get install curl libxml2-dev libsqlite3-0 libsqlite3-dev \
