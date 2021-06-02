@@ -27,8 +27,8 @@
                     </div>
                 </div>
 
-                <!-- <div class="panel-body">
-                    <ul class="list-group" v-if="task.timers.length > 0">
+                <div class="panel-body">
+                    <ul class="list-group" v-if="task.timers">
                         <li v-for="timer in task.timers" :key="timer.id" class="list-group-item clearfix">
                             <strong class="timer-name">{{ timer.name }}</strong>
                             <div class="pull-right">
@@ -45,8 +45,11 @@
                             </div>
                         </li>
                     </ul>
-                    <p v-else>Nothing has been recorded for "{{ task.name }}". Click the play icon to record.</p>
-                </div> -->
+                    <p v-else>Nothing has been recorded for
+                        <b>{{ task.title }}</b>.
+                        Click the play icon to record.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -57,7 +60,7 @@
     export default {
         data() {
             return {
-                task: null,
+                task: this.currentTask,
                 newTimerName: '',
                 activeTimerString: 'Calculating...',
                 counter: {
@@ -67,12 +70,13 @@
             }
         },
         props: [
-            'taskId'
+            'currentTask',
         ],
         created() {
             window.axios.get('/tasks/').then(response => {
                 this.tasks = response.data
-                console.log(taskId);
+                console.log("Task ID: " + this.task.id);
+                console.log(this.task);
                 window.axios.get('/tasks/timers/active').then(response => {
                     if (response.data.id !== undefined) {
                         this.startTimer(response.data.task, response.data)
