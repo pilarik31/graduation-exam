@@ -53,23 +53,20 @@
 
                         <div class="row">
                             <div class="col">
+                                {{ date('Y-m-d', strtotime($task->from)) }}
                                 <label for="from">@lang('tasks.from')</label>
                                 <input type="date" name="from" id="from" class="form-control"
                                 value=
-                                "@isset($task->from)
-                                    {{ date('Y-m-d', strtotime($task->from)) }}
-                                @endisset
-                                ">
+                                "@isset($task->from){{ date('Y-m-d', strtotime($task->from)) }}@endisset"
+                                >
                             </div>
 
                             <div class="col">
                                 <label for="to">@lang('tasks.deadline')</label>
                                 <input type="date" name="to" id="to" class="form-control"
                                 value=
-                                "@isset($task->to)
-                                    {{ date('Y-m-d', strtotime($task->to)) }}
-                                @endisset
-                                ">
+                                "@isset($task->to){{ date('Y-m-d', strtotime($task->to)) }}@endisset"
+                                >
                             </div>
                         </div>
                     </div>
