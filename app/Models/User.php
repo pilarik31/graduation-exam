@@ -58,7 +58,7 @@ class User extends Authenticable
 
     public function isCurrentUser(): bool
     {
-        return $this->id === auth()->id();
+        return request()->is("users/{$this->id}");
     }
 
     protected $guarded = [
