@@ -59,7 +59,7 @@ class Task extends Model
      */
     public function scopeMine(Builder $query): Builder
     {
-        return $query->whereUserId(Auth::id());
+        return $query->where('user_id', '=', Auth::id());
     }
 
     /**

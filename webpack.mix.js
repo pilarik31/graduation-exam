@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let webpack = require('webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -22,6 +23,15 @@ mix
 .css('node_modules/normalize.css/normalize.css', 'public/css')
 .browserSync('myapp.loc')
 .disableNotifications();
+
+mix.webpackConfig({
+    plugins: [
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: true
+        }),
+    ],
+});
 
 if (mix.inProduction()) {
     mix.version();

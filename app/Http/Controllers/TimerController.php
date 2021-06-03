@@ -16,6 +16,9 @@ class TimerController extends Controller
             'name' => 'required|between:3,100'
         ]);
 
+        $timer = Task::findOrFail($id);
+        dd($timer);
+
         $timer = Task::mine()->findOrFail($id)
             ->timers()->save(new Timer([
                 'name' => $data['name'],
