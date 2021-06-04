@@ -2,8 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/js/manifest.js": "/js/manifest.js",
     "/css/app.css": "/css/app.css",
-    "/css/normalize.css": "/css/normalize.css",
     "/css/error.css": "/css/error.css",
     "/css/login.css": "/css/login.css",
+    "/css/normalize.css": "/css/normalize.css",
     "/js/vendor.js": "/js/vendor.js"
 }
