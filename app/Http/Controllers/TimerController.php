@@ -16,15 +16,22 @@ class TimerController extends Controller
             'name' => 'required|between:3,100'
         ]);
 
-        $timer = Task::findOrFail($id);
-        dd($timer);
+        /** @var Task */
+        $task = Task::mine()->findOrFail($id);
 
-        $timer = Task::mine()->findOrFail($id)
-            ->timers()->save(new Timer([
-                'name' => $data['name'],
-                'user_id' => Auth::id(),
-                'started_at' => new Carbon(),
-            ]));
+        /** @var Timer */
+        $timer = $task->timers()->save(new Timer([
+            'name' => $data['name'],
+            'user_id' => Auth::id(),
+            'started_at' => new Carbon(),
+        ]));
+
+        // $timer = Task::mine()->findOrFail($id)
+        //     ->timers()->save(new Timer([
+        //         'name' => $data['name'],
+        //         'user_id' => Auth::id(),
+        //         'started_at' => new Carbon(),
+        //     ]));
 
         return $timer->with('task')->find($timer->id);
     }

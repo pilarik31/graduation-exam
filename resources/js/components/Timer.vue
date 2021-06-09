@@ -55,7 +55,8 @@
 </template>
 
 <script>
-    import moment from 'moment'
+    import moment from 'moment';
+    import axios from 'axios';
     export default {
         data() {
             return {
@@ -72,11 +73,11 @@
             'currentTask',
         ],
         created() {
-            window.axios.get('/tasks/').then(response => {
+            axios.get('/tasks/').then(response => {
                 this.tasks = response.data
                 console.log("Task ID: " + this.task.id);
                 console.log(this.task);
-                window.axios.get('/tasks/timers/active').then(response => {
+                axios.get('/tasks/timers/active').then(response => {
                     if (response.data.id !== undefined) {
                         this.startTimer(response.data.task, response.data)
                     }
@@ -146,7 +147,7 @@
              * Stop the timer from the API and then from the local counter.
              */
             stopTimer: function () {
-                window.axios.post(`/tasks/${this.counter.timer.id}/timers/stop`)
+                axios.post(`/tasks/${this.counter.timer.id}/timers/stop`)
                     .then(response => {
                         // Loop through the tasks and get the right task...
                         this.tasks.forEach(task => {
@@ -176,7 +177,7 @@
              * Create a new timer.
              */
             createTimer: function (task) {
-                window.axios.post(`/tasks/${task.id}/timers`, {
+                axios.post(`/tasks/${task.id}/timers`, {
                         name: this.newTimerName
                     })
                     .then(response => {
